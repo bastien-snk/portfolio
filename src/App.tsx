@@ -1,13 +1,21 @@
 import React from 'react';
 import './style.css';
 
+
 function App() {
   return (
-      <div className="min-h-full bg">
+      <div id="app" className="min-h-full body-bg">
         <Header></Header>
-        <div className="mt-28">
-            <IDE></IDE>
+        <div className="mt-20">
+            <div className="py-28">
+                <IDE></IDE>
+            </div>
+
+            <div className="py-28">
+                <Apropos></Apropos>
+            </div>
         </div>
+        <Footer></Footer>
       </div>
   );
 }
@@ -41,7 +49,7 @@ function Header() {
     return (
         <header className="px-5 py-5 align-middle relative flex">
           <span className="flex-1 flex items-start justify-start">
-            <a href="">
+            <a href="" className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
               <img className="w-9 inline" src={logo} />
             </a>
           </span>
@@ -61,7 +69,7 @@ function Header() {
                 </ul>
             </nav>
 
-            <div className="w-6 sm:hidden align-middle m-auto hover:text-secondary">
+            <div className="w-6 sm:hidden align-middle m-auto hover:text-secondary transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                 <a href="">
                     <svg className="text-white float-right flex-2 flex items-start justify-start svg-inline--fa fa-bars fa-w-14 fa-2x" aria-hidden="true"
                          focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -74,6 +82,46 @@ function Header() {
             </div>
 
         </header>
+    );
+}
+
+const footerInfos = {
+    social: [
+        {
+            alt: 'GitHub',
+            logo: 'github-brands.svg',
+            link: 'https://github.com/rootxls',
+        },
+        {
+            alt: 'LinkedIn',
+            logo: 'linkedin-brands.svg',
+            link: 'https://github.com/rootxls',
+        },
+    ]
+};
+
+function Footer() {
+    return (
+        <div className="h-full bg-footer_bg text-white bottom-0">
+            <a href="#app">
+                <img className="w-8 mx-auto pt-3 pb-5 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 mx-1" src={"/img/arrow-up-solid.svg"} />
+            </a>
+            <p className="text-center pb-1 font-montserrat">© 2021 - Maquette et modèle développés par moi-même</p>
+            <div className="w-80 md:w-96 mx-auto bg-footer h-1"></div>
+            <div id="social" className="text-center mt-2">
+                <ul className="mx-auto">
+                    { footerInfos.social.map((social, index) => {
+                        return (
+                            <li className="w-8 h-8 inline-block transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 mx-1">
+                                <a href={ social.link }>
+                                    <img src={ "./img/socials/" + social.logo } alt={ social.alt } />
+                                </a>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+        </div>
     );
 }
 
@@ -127,7 +175,7 @@ function IDE() {
                 <div id="class-list" className="bg text-white">
                     <div id="base-proj" className="flex pt-2">
                         <img className="w-8 h-8 pb-1  cursor-pointer" src={"img/IDE/file-arrow.svg"} />
-                        <img className="w-7 h-7" src="https://i.ibb.co/nL5fBC6/folder.png"/>
+                        <img className="w-7 h-7" src={"img/IDE/src.svg"} />
                         <p className="ml-2 mt-1">{ ide_infos.projectName }</p>
                     </div>
 
@@ -182,15 +230,65 @@ function IDE() {
                         <h1 className="font-bold lg:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-br from-button_clear to-button_dark">{ ide_infos.h1 }</h1>
                         <h2 className="font-bold lg:text-2xl 2xl:text-3xl text-lg">{ ide_infos.h2 }</h2>
                         <div id="discover-buttons" className="w-full mt-5">
-                            <div className="block xl:inline cursor-pointer bg-gradient-to-br from-button_clear to-button_dark border-4 border-button_dark center py-2 px-2 mx-4">
+                            <div className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 block xl:inline cursor-pointer bg-gradient-to-br from-button_clear to-button_dark border-4 border-button_dark center py-2 px-2 mx-4">
                                 <p className="block xl:inline uppercase font-montserrat font-bold text-xl">Découvrir</p>
                             </div>
-                            <div className="block xl:inline cursor-pointer border-button_dark border-4 center py-2 px-2 mx-4 my-2 xl:my-0">
+                            <div className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 block xl:inline cursor-pointer border-button_dark border-4 center py-2 px-2 mx-4 my-2 xl:my-0">
                                 <p className="block xl:inline uppercase text-xl text-transparent bg-clip-text bg-gradient-to-br from-button_clear to-button_dark font-bold">Ah bah non</p>
                             </div>
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function Apropos() {
+    return (
+        <div id="IDE-APROPOS" className="ide bg-white my-auto mx-8 text-center w-5/12 font-roboto">
+            <div id="window-ctrls" className="py-1">
+                <p id="windows-name">Portolio ~ A propos</p>
+                <div id="buttons" className="grid grid-flow-col space-x-1 float-right mr-4 -mt-5">
+                    <div className="bg-gray-300 hover:bg-green-500 w-4 h-4 rounded-full cursor-pointer"></div>
+                    <div className="bg-gray-300 hover:bg-yellow-500 w-4 h-4 rounded-full cursor-pointer"></div>
+                    <div className="bg-gray-300 hover:bg-red-500 w-4 h-4 rounded-full cursor-pointer"></div>
+                </div>
+            </div>
+            <div id="class-editor" className="bg-ide_class_bg text-white inline-grid w-full">
+                <div className="center font-montserrat text-left">
+                    <h1 className="ml-3 font-bold text-4xl text-transparent bg-clip-text bg-gradient-to-br from-button_clear to-button_dark">Qui
+                        suis-je ?</h1>
+                    <p className="ml-3 mt-2 mb-3 leading-tight font-semibold text-lg">Je suis un Développeur Back &
+                        Front-End exercant dans plusieurs domaines.</p>
+                    <p className="ml-3 mt-2 mb-3 leading-tight font-semibold text-lg">Mon expérience m'a amenée à
+                        évoluer au sein d'environnements professionnels très variés. </p>
+
+                    <h1 className="ml-3 font-bold text-4xl text-transparent bg-clip-text bg-gradient-to-br from-button_clear to-button_dark">Ma
+                        facon de travailler</h1>
+                    <p className="ml-3 mt-2 mb-3 leading-tight font-semibold text-lg">J’apprends constamment de nouveaux
+                        langages et technologies.</p>
+                    <p className="ml-3 mt-2 mb-3 leading-tight font-semibold text-lg">Organisé, résolveur de problème et
+                        travailleur indépendant avec une particulière attention au detail.</p>
+
+                    <h1 className="ml-3 font-bold text-4xl text-transparent bg-clip-text bg-gradient-to-br from-button_clear to-button_dark">Mes
+                        motivations</h1>
+                    <ul className="list-disc list-inside pl-4">
+                        <li className="ml-3 mt-2 mb-3 leading-tight font-semibold text-lg">Intéréssé à l'idée de
+                            travailler sur des projets ambitieux.
+                        </li>
+                        <li className="ml-3 mt-2 mb-3 leading-tight font-semibold text-lg">Développer mon expérience.
+                        </li>
+                    </ul>
+
+                    <div id="discover-buttons" className="w-full md:w-96 mt-5 mx-auto">
+                        <div
+                            className="mb-3 cursor-pointer bg-gradient-to-br from-button_clear to-button_dark border-4 border-button_dark center py-2 px-2 mx-4 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                            <p className="uppercase font-montserrat font-bold text-xl text-center">FAISONS QUELQUE
+                                CHOSE</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

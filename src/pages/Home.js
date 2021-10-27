@@ -26,7 +26,14 @@ function Home() {
             <Header />
             <div className="flex flex-col lg:flex-row text-theme-white-classic justify-around mt-40">
 
-                <div id="PRESENTATION" className={"my-auto justify-self-center self-center relative w-"}>
+                    {/*
+                    TODO
+                        center presentation
+                        add ombre rounds + ide + header
+                        gap-x IDE et texte
+                        regler problème header en dehors de la div
+                    */}
+                    <div id="PRESENTATION" className={"my-auto justify-self-center self-center z-40"}>
 
                     <div id="iam" className="flex flex-row">
                         <CodeElement balise="p" closing={false} />

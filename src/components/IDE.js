@@ -44,7 +44,7 @@ function Variable(props) {
 class IDE extends Component {
 
     render(props) {
-        return <div className="flex flex-col min-h-full min-w-full font-montserrat">
+        return <div className="flex flex-col min-h-full min-w-full font-montserrat z-40">
             <div id="Window Controls" className="flex rounded-t-3xl bg-theme-white-classic h-12 w-full">
                 <span id="Window Name" className="flex-1 justify-center text-black my-auto text-center">
                     { this.props.windowName }

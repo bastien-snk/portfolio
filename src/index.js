@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import './style.css';
 import Home from './pages/Home';
 import reportWebVitals from './reportWebVitals';
-/*import favicon from 'img/favicon.ico';*/
 
 
 ReactDOM.render(
   <React.StrictMode>
-      {/*<link rel="icon" href={ favicon } />*/}
-    <Home />
+      <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );

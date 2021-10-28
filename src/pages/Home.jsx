@@ -1,6 +1,6 @@
 import Header from '../components/Header.jsx'
 import IDE from "../components/IDE";
-import transition from '../img/transitions/home/1.svg';
+import transitionTop from '../img/transitions/home/1.png';
 import GoTopArrow from "../components/GoTopArrow";
 import Apropos from "./Apropos";
 import React from "react";
@@ -77,22 +77,23 @@ function Home() {
                     </div>
                 </div>
 
-                <div className="absolute right-0 -bottom-4 sm:bottom-20 lg:top-40 xl:top-12">
+                <div className="hidden md:block absolute right-0 -bottom-4 sm:bottom-20 lg:top-40 xl:top-12">
                     <div className="relative float-right fixed z-0 bottom-0">
-                        <div className="bg-theme-yellow-F49F0A rounded-l-full w-40 h-80"></div>
+                        <div className="bg-theme-yellow-F49F0A rounded-l-full w-40 h-80 z-30"></div>
                         <div className="bg-theme-yellow-F6AA28 rounded-full w-56 h-56 absolute -left-28 -bottom-16"></div>
                         <div className="bg-theme-yellow-F7B23B rounded-full w-44 h-44 absolute -left-44 -bottom-32"></div>
                     </div>
                 </div>
 
                 <img
-                    className="inset-x-0 bottom-0 z-40"
-                    src={transition}
-                    srcSet={transition}
+                    className="inset-x-0 bottom-0 z-40 lg:mt-12"
+                    src={transitionTop}
+                    srcSet={transitionTop}
                     width="100%"
                     height="100%"
                     alt=""
                 />
+
             </div>
             <Apropos />
             <GoTopArrow />

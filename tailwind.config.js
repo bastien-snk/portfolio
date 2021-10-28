@@ -59,7 +59,7 @@ module.exports = {
             gray: '#C4C4C4',
           }
         }
-      }
+      },
     },
 
   },

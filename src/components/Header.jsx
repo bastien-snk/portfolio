@@ -1,8 +1,6 @@
 import {Component} from "react";
 import logo from '../img/logo.svg';
 import menu from '../img/bars-solid.svg';
-import { Link } from 'react-router-dom'
-import Competences from "../pages/Competences";
 
 const hoverAnimation = "transform hover:scale-125 duration-150 hover:-rotate-6";
 

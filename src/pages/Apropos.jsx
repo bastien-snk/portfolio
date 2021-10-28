@@ -1,4 +1,4 @@
-import Section from '../components/Section.js';
+import Section from '../components/Section.jsx';
 import pdp from "../img/me.jpg";
 import Button from "../components/Button";
 import React from "react";

@@ -1,4 +1,4 @@
-import Header from '../components/Header.js'
+import Header from '../components/Header.jsx'
 import IDE from "../components/IDE";
 import transition from '../img/transitions/home/1.svg';
 import GoTopArrow from "../components/GoTopArrow";

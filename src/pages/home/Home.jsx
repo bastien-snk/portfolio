@@ -1,12 +1,9 @@
 import Header from '../../components/parts/Header.jsx'
 import IDE from "../../components/IDE";
 import transitionTop from '../../img/transitions/home/1.png';
-import GoTopArrow from "../../components/GoTopArrow";
 import Apropos from "./sections/Apropos";
 import React from "react";
 import Button from "../../components/design-system/Button";
-import {Experience} from "../experience/Experience";
-import {Portfolio} from "../portfolio/Portfolio";
 import {Footer, mode as FooterMode} from "../../components/parts/Footer";
 
 const presentationText = [
@@ -16,7 +13,7 @@ const presentationText = [
 ];
 
 function CodeElement(props) {
-    let style = "text-theme-gray-50 font-fira-code my-auto text-xl mx-2";
+    let style = "text-theme-gray-50 font-fira-code my-auto text-sm xl:text-xl mx-2";
 
     if(props.closing) {
         return <p className={ style }>{ "</" + props.balise + ">" }</p>
@@ -32,7 +29,7 @@ function Home() {
         <div>
             <div className="bg-theme-gray-250 min-w-screen min-h-screen mx-auto">
                 <Header />
-                <div className="flex flex-col lg:flex-row text-theme-white-classic justify-around mt-12 lg:mt-40 z-40 relative">
+                <div className="flex flex-col lg:flex-row text-theme-white-classic justify-center xl:justify-around mt-12 lg:mt-40 z-40 relative">
 
                     {/*
                     TODO
@@ -99,7 +96,7 @@ function Home() {
 
             </div>
             <Apropos />
-            <Footer selectedMode={FooterMode.DARK} imgPath="../../img/" />
+            <Footer selectedMode={FooterMode.DARK} imgPath="/public/img/social" />
         </div>
     );
 }

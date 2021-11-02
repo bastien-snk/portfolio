@@ -49,7 +49,7 @@ function Apropos() {
                     </p>
 
                     <div className="self-center">
-                        <Button text="VOIR LE CV" href="cv.pdf" />
+                        <Button text="VOIR LE CV" href="cv" />
                     </div>
                 </div>
 

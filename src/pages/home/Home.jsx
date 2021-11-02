@@ -1,10 +1,13 @@
-import Header from '../components/Header.jsx'
-import IDE from "../components/IDE";
-import transitionTop from '../img/transitions/home/1.png';
-import GoTopArrow from "../components/GoTopArrow";
-import Apropos from "./Apropos";
+import Header from '../../components/parts/Header.jsx'
+import IDE from "../../components/IDE";
+import transitionTop from '../../img/transitions/home/1.png';
+import GoTopArrow from "../../components/GoTopArrow";
+import Apropos from "./sections/Apropos";
 import React from "react";
-import Button from "../components/Button";
+import Button from "../../components/design-system/Button";
+import {Experience} from "../experience/Experience";
+import {Portfolio} from "../portfolio/Portfolio";
+import {Footer, mode as FooterMode} from "../../components/parts/Footer";
 
 const presentationText = [
     "DÉVELOPPEUR",
@@ -56,7 +59,7 @@ function Home() {
                             <CodeElement balise="p" />
 
                             {presentationText.map(line =>
-                                    <span className="flex flex-row">
+                                    <span key={presentationText.indexOf(line)} className="flex flex-row">
                                         <p className="text-4xl leading-9 ml-8">{ line }</p>
                                         <CodeElement balise="br" selfClosing={true} />
                                     </span>
@@ -96,7 +99,7 @@ function Home() {
 
             </div>
             <Apropos />
-            <GoTopArrow />
+            <Footer selectedMode={FooterMode.DARK} imgPath="../../img/" />
         </div>
     );
 }

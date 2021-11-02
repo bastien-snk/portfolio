@@ -1,7 +1,8 @@
-import Section from '../components/Section.jsx';
-import pdp from "../img/me.jpg";
-import Button from "../components/Button";
+import Section from '../../../components/design-system/Section.jsx';
+import pdp from "../../../img/me.jpg";
+import Button from "../../../components/design-system/Button";
 import React from "react";
+import transition from "../../../img/transitions/home/a-propos/BOTTOM TRANSITION.png";
 
 function Apropos() {
     return (
@@ -10,7 +11,7 @@ function Apropos() {
 
             <div className="flex flex-col lg:flex-row justify-center xl:justify-between gap-x-24 mt-20 mx-auto">
                 <img
-                    className="rounded-full border-5 border-theme-white-classic mx-auto lg:ml-10 xl:ml-48 self-center w-48 h-48 lg:w-96 lg:h-96 z-40 lg:-mt-80 xl:mt-0 xl:mb-44 2xl:mb-12"
+                    className="rounded-full border-5 border-theme-white-classic mx-auto lg:ml-10 xl:ml-48 self-center w-48 h-48 lg:w-96 lg:h-96 z-40 lg:-mt-80 xl:mt-0 xl:mb-44 2xl:mb-56"
                     src={ pdp }
                     srcSet={ pdp }
                     width="365"
@@ -61,7 +62,14 @@ function Apropos() {
                 </div>
             </div>
 
-
+            <img
+                className="inset-x-0 bottom-0 z-40 lg:mt-12 xl:mt-24"
+                src={transition}
+                srcSet={transition}
+                width="100%"
+                height="100%"
+                alt=""
+            />
         </div>
     );
 }

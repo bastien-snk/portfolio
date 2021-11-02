@@ -1,4 +1,4 @@
-import Header from '../components/Header.jsx'
+import Header from '../components/parts/Header.jsx'
 
 function Competences() {
     return (

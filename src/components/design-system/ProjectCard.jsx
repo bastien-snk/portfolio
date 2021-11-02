@@ -37,7 +37,7 @@ class ProjectCard extends React.Component {
                 </a>
                 <a href={ this.props.repo? this.props.repo : "" } className="self-center">
                     <img
-                        className="z-40 transform hover:scale-125 duration-150 hover:-rotate-6"
+                        className={["z-40 transform hover:scale-125 duration-150 hover:-rotate-6 ", this.props.repo != null ? "" : " hidden"] }
                         src={ GitHubIcon }
                         srcSet={ GitHubIcon }
                         width="100%"

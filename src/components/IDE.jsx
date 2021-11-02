@@ -11,7 +11,6 @@ function calculateAge(birthday) {
 
 function Variable(props) {
     let color = "";
-    console.log(typeof props.variableValue);
     switch (typeof props.variableValue) {
         case 'boolean': {
             color = "text-theme-dev-orange";
@@ -61,7 +60,7 @@ class IDE extends Component {
                 <div id="Lines Index" className="bg-theme-gray-100 3xl text-center w-11 rounded-bl-3xl py-3">
                     <ul>
                         {[...Array(11)].map((x, i) =>
-                            <li className="">{ i + 1 }</li>
+                            <li key={i} className="">{ i + 1 }</li>
                         )}
                     </ul>
                 </div>

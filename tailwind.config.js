@@ -60,6 +60,12 @@ module.exports = {
           }
         }
       },
+      spacing: {
+        '90': '344px',
+      },
+      boxShadow: {
+        yellow: '0px 0px 17px 0 #F49F0A',
+      },
     },
 
   },

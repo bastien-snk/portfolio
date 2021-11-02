@@ -18,10 +18,11 @@ function Apropos() {
                     height="365"
                     alt=""
                 />
+
                 <div className="
-                    font-montserrat leading-8 text-lg lg:text-2xl justify-self-center self-center whitespace-pre-line
+                    font-montserrat leading-8 text-lg lg:text-2xl self-center whitespace-pre-line
                     flex flex-col gap-y-7
-                    w-5/12 mr-10 xl:mr-52 pb-10 2xl:pb-0
+                    w-9/12 2xl:w-5/12 mr-10 xl:mr-52 pb-10 2xl:pb-0
                     text-theme-white-classic text-justify
                 ">
                     <p>

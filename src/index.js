@@ -12,7 +12,6 @@ import {Contact} from "./pages/contact/Contact";
 
 ReactDOM.render(
   <React.StrictMode>
-
       <Router>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={Home}  />

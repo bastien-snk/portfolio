@@ -12,7 +12,6 @@ export const mode = {
 }
 
 export function Footer({selectedMode, imgPath}) {
-    Object.values(social).map(network => console.log("img/social/" + network.img));
 
     return (<div className={selectedMode.background + " text-theme-white-classic font-montserrat py-14"}>
             <hr className="mx-auto border-theme-white-classic bg-theme-white-classic border-1 w-80 rounded-full" />

@@ -72,9 +72,8 @@ class IDE extends Component {
                         <p id="classCode" className={wordSpacing + "text-theme-dev-yellow"}>Developer</p>
                         <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{" {"}</p>
                     </div>
-                    <div id="codeLine2" className=" flex flex-row">
-                        <p id="classCode" className={"text-transparent"}>t</p>
-                    </div>
+                    <br />
+
                     <div id="codeLine3" className=" flex flex-row">
                         <p id="classCode" className={"text-theme-dev-orange pl-4"}>constructor</p>
                         <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{"() {"}</p>
@@ -89,9 +88,7 @@ class IDE extends Component {
                     <div id="codeLine9" className="flex flex-row">
                         <p id="classCode" className={wordSpacing + "text-theme-dev-white pl-4"}>{"}"}</p>
                     </div>
-                    <div id="codeLine10" className="flex flex-row">
-                        <p id="classCode" className={"text-transparent"}>t</p>
-                    </div>
+                    <br />
                     <div id="codeLine11" className="flex flex-row">
                         <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{"}"}</p>
                     </div>

@@ -4,6 +4,8 @@ import React from "react";
 import Button from "../../components/design-system/Button";
 import siteweb from "../../img/services/site-web.png";
 import mobileapp from "../../img/services/mobile-app.png";
+import {Footer, mode} from "../../components/parts/Footer";
+import transition from "../../img/transitions/portfolio/1.png";
 
 
 const services = [
@@ -53,10 +55,9 @@ export function Services() {
                         </div>
                     )}
                 </div>
-
-
-
             </div>
+
+            <Footer selectedMode={mode.DARK} />
         </div>
     );
 }

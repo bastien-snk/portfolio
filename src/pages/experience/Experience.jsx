@@ -74,8 +74,8 @@ export class Experience extends React.Component {
                 <Header />
                 <Section name="💼 Expérience" id="experience" />
 
-                <div id="content" className="py-32 flex flex-row justify-center gap-x-36">
-                    <div className="w-2/12">
+                <div id="content" className="py-32 flex flex-row justify-center gap-x-12 lg:gap-x-36">
+                    <div className="xl:w-2/12">
                         <div id="exp-list" className="font-fira-code text-theme-white-classic text-2xl flex flex-col border-r-3 border-theme-gray-200">
                             {
                                 experiences.map(experience =>
@@ -93,9 +93,7 @@ export class Experience extends React.Component {
                             }
                         </div>
                     </div>
-
-
-                    <div className="w-4/12">
+                    <div className="xl:w-3/12">
                         <IDE
                             windowName="Experience.pro"
                             lines={
@@ -122,7 +120,7 @@ export class Experience extends React.Component {
                 </div>
 
                 <img
-                    className="bottom-0 z-40 lg:mt-12"
+                    className="bottom-0 z-40 mt-32"
                     src={transition}
                     srcSet={transition}
                     width="100%"

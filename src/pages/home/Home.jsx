@@ -128,7 +128,7 @@ function Home() {
 
             </div>
             <Apropos />
-            <Footer selectedMode={FooterMode.DARK} imgPath="/public/img/social" />
+            <Footer selectedMode={FooterMode.DARK} />
         </div>
     );
 }

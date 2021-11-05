@@ -1,5 +1,4 @@
 import {social} from "../../pages/contact/Contact";
-import "@fortawesome/fontawesome-free";
 import React from "react";
 
 export const mode = {
@@ -30,7 +29,6 @@ export function Footer({selectedMode}) {
                                 height="30"
                             />
                         </a>
-
                     )}
             </div>
         </div>

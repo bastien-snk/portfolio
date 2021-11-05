@@ -9,21 +9,23 @@ import Mail from "../../img/contact/base/email.svg";
 import Objet from "../../img/contact/base/objet.svg";
 import Nom from "../../img/contact/base/nom.svg";
 import Msg from "../../img/contact/base/message.svg";
+import github from "../../img/social/github.png";
+import linkedin from "../../img/social/linkedin.png";
+import malt from "../../img/social/malt.png";
 
 
 export const social = {
     GITHUB: {
         link: "https://github.com/rootxls",
-        img: "github.png",
+        img: github,
     },
     LINKEDIN: {
         link: "https://www.linkedin.com/in/bastien-siniak/",
-        img: "linkedin.png",
+        img: linkedin,
     },
     MALT: {
         link: "https://www.malt.fr/profile/bastiensnk",
-        img: "malt.png",
-
+        img: malt,
     },
 };
 

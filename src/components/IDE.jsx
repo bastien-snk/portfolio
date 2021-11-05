@@ -1,15 +1,15 @@
 import {Component} from "react";
 
 const boutton = " h-5 w-5 bg-theme-dev-gray rounded-full";
-const wordSpacing = " pr-2 ";
+export const wordSpacing = " pr-2 ";
 
-function calculateAge(birthday) {
+export function calculateAge(birthday) {
     var ageDifMs = Date.now() - birthday.getTime();
     var ageDate = new Date(ageDifMs);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
 
-function Variable(props) {
+export function Variable(props) {
     let color = "";
     switch (typeof props.variableValue) {
         case 'boolean': {
@@ -57,41 +57,23 @@ class IDE extends Component {
             </div>
 
             <div className="flex flew-row font-fira-code leading-8">
-                <div id="Lines Index" className="bg-theme-gray-100 3xl text-center w-11 rounded-bl-3xl py-3">
-                    <ul>
-                        {[...Array(11)].map((x, i) =>
-                            <li key={i} className="">{ i + 1 }</li>
-                        )}
-                    </ul>
-                </div>
+                {this.props.linesIndex ?
+                    <div id="Lines Index" className="bg-theme-gray-100 3xl text-center w-11 rounded-bl-3xl py-3">
+                        <ul>
+                            {[...Array(11)].map((x, i) =>
+                                <li key={i} className="">{i + 1}</li>
+                            )}
+                        </ul>
+                    </div>
+                    :
+                    <></>
+                }
 
                 {/*Code moche à refaire*/}
-                <div id="Code" className="bg-theme-gray-200 w-full rounded-br-3xl flex-1 p-3">
-                    <div id="codeLine1" className=" flex flex-row">
-                        <p id="classCode" className={wordSpacing + "text-theme-dev-orange"}>class</p>
-                        <p id="classCode" className={wordSpacing + "text-theme-dev-yellow"}>Developer</p>
-                        <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{" {"}</p>
-                    </div>
-                    <br />
-
-                    <div id="codeLine3" className=" flex flex-row">
-                        <p id="classCode" className={"text-theme-dev-orange pl-4"}>constructor</p>
-                        <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{"() {"}</p>
-                    </div>
-
-                    <Variable variableName="name" variableValue={"“Bastien S.”"} />
-                    <Variable variableName="job" variableValue={"“Développeur FullStack”"} />
-                    <Variable variableName="age" variableValue={ parseInt(calculateAge(new Date(2001, 9, 20))) } />
-                    <Variable variableName="location" variableValue={"“📍 Perpignan, France”"} />
-                    <Variable variableName="degree" variableValue={true} />
-
-                    <div id="codeLine9" className="flex flex-row">
-                        <p id="classCode" className={wordSpacing + "text-theme-dev-white pl-4"}>{"}"}</p>
-                    </div>
-                    <br />
-                    <div id="codeLine11" className="flex flex-row">
-                        <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{"}"}</p>
-                    </div>
+                <div id="Code" className={["bg-theme-gray-200 w-full flex-1 p-3 ",
+                    this.props.linesIndex ? " rounded-br-3xl " : " rounded-b-3xl "
+                ]}>
+                    { this.props.lines }
                 </div>
 
             </div>

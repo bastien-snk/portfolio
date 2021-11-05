@@ -1,5 +1,5 @@
 import Header from '../../components/parts/Header.jsx'
-import IDE from "../../components/IDE";
+import IDE, {calculateAge, Variable, wordSpacing} from "../../components/IDE";
 import transitionTop from '../../img/transitions/home/1.png';
 import Apropos from "./sections/Apropos";
 import React from "react";
@@ -73,7 +73,39 @@ function Home() {
                     </div>
 
                     <div id="IDE" className="w-11/12 md:w-7/12 lg:w-5/12 xl:w-4/12 self-center z-40">
-                        <IDE windowName="Bastien.dev" />
+                        <IDE
+                            windowName="Bastien.dev"
+                            linesIndex={true}
+                            lines={
+                            <div>
+                                <div id="codeLine1" className=" flex flex-row">
+                                    <p id="classCode" className={wordSpacing + "text-theme-dev-orange"}>class</p>
+                                    <p id="classCode" className={wordSpacing + "text-theme-dev-yellow"}>Developer</p>
+                                    <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{" {"}</p>
+                                </div>
+                                <br />
+
+                                <div id="codeLine3" className=" flex flex-row">
+                                    <p id="classCode" className={"text-theme-dev-orange pl-4"}>constructor</p>
+                                    <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{"() {"}</p>
+                                </div>
+
+                                <Variable variableName="name" variableValue={"“Bastien S.”"} />
+                                <Variable variableName="job" variableValue={"“Développeur FullStack”"} />
+                                <Variable variableName="age" variableValue={ parseInt(calculateAge(new Date(2001, 9, 20))) } />
+                                <Variable variableName="location" variableValue={"“📍 Perpignan, France”"} />
+                                <Variable variableName="degree" variableValue={true} />
+
+                                <div id="codeLine9" className="flex flex-row">
+                                    <p id="classCode" className={wordSpacing + "text-theme-dev-white pl-4"}>{"}"}</p>
+                                </div>
+                                <br />
+                                <div id="codeLine11" className="flex flex-row">
+                                    <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{"}"}</p>
+                                </div>
+                            </div>
+
+                        } />
                     </div>
                 </div>
 

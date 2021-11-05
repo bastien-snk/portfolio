@@ -3,6 +3,7 @@ import transition from '../../img/transitions/home/experience/bottom.png';
 import Section from "../../components/design-system/Section";
 import Header from "../../components/parts/Header";
 import IDE from "../../components/IDE";
+import {Footer, mode} from "../../components/parts/Footer";
 
 const Month = {
     JANVIER: 0,
@@ -31,8 +32,9 @@ function formatDate(date) {
 
 const experiences = [
     {
+        displayName: "Freelancing",
         job: "Développeur",
-        company: "Freelance",
+        company: "Indépendant",
         description: [
             "A",
             "B",
@@ -52,18 +54,13 @@ const experiences = [
     },
 ];
 
-
-
 export class Experience extends React.Component {
-
 
     constructor(props, context) {
         super(props, context);
         this.state = {experience: experiences[0]};
         this.selectExperience = this.selectExperience.bind(this);
     }
-
-
 
     selectExperience(index) {
         this.setState({
@@ -73,31 +70,28 @@ export class Experience extends React.Component {
 
     render() {
         return (
-            <div className="bg-theme-gray-250 min-w-screen min-h-screen">
+            <div className="bg-theme-gray-250 ">
                 <Header />
                 <Section name="💼 Expérience" id="experience" />
 
-                <div className="py-32 flex flex-row justify-center gap-x-36">
+                <div id="content" className="py-32 flex flex-row justify-center gap-x-36">
                     <div className="w-2/12">
-                        <div >
-                            <div id="exp-list" className="font-fira-code text-theme-white-classic text-2xl flex flex-col border-r-3 border-theme-gray-200">
-                                {
-                                    experiences.map(experience =>
-                                        <div
-                                            key={experiences.indexOf(experience)}
-                                            className={[
-                                                experiences.indexOf(this.state.experience) == experiences.indexOf(experience) ? " bg-theme-gray-200 text-theme-yellow-F49F0A border-b-3 border-theme-yellow-F49F0A " : " text-theme-white-classic cursor-pointer hover:bg-theme-gray-150 ",
-                                                " h-14 text-center"]
-                                            }
-                                            onClick={(e) => this.selectExperience(experiences.indexOf(experience))}
-                                        >
-                                            <p>{ experience.company }</p>
-                                        </div>
-                                    )
-                                }
-                            </div>
+                        <div id="exp-list" className="font-fira-code text-theme-white-classic text-2xl flex flex-col border-r-3 border-theme-gray-200">
+                            {
+                                experiences.map(experience =>
+                                    <div
+                                        key={experiences.indexOf(experience)}
+                                        className={[
+                                            experiences.indexOf(this.state.experience) == experiences.indexOf(experience) ? " bg-theme-gray-200 text-theme-yellow-F49F0A border-b-3 border-theme-yellow-F49F0A " : " text-theme-white-classic cursor-pointer hover:bg-theme-gray-150 ",
+                                            " h-14 text-center"]
+                                        }
+                                        onClick={(e) => this.selectExperience(experiences.indexOf(experience))}
+                                    >
+                                        <p>{ experience.displayName? experience.displayName : experience.company }</p>
+                                    </div>
+                                )
+                            }
                         </div>
-                        {/*<div className="border-l-1 h-96" ></div>*/}
                     </div>
 
 
@@ -108,7 +102,6 @@ export class Experience extends React.Component {
                                 <div>
                                     <h1 className="text-theme-white-classic text-2xl">
                                         { this.state.experience.job }
-
                                         <b className="text-theme-yellow-F49F0A"> @{ this.state.experience.company }</b>
                                     </h1>
                                     <h2 className="text-theme-gray-50 font-semibold">
@@ -127,9 +120,17 @@ export class Experience extends React.Component {
                         />
                     </div>
                 </div>
+
+                <img
+                    className="bottom-0 z-40 lg:mt-12"
+                    src={transition}
+                    srcSet={transition}
+                    width="100%"
+                    height="100%"
+                    alt=""
+                />
+                <Footer selectedMode={mode.LIGHT} />
             </div>
         );
     }
 }
-
-

@@ -5,20 +5,20 @@ import Header from "../../components/parts/Header";
 import IDE from "../../components/IDE";
 import {Footer, mode} from "../../components/parts/Footer";
 
-const Month = {
-    JANVIER: 0,
-    FEVRIER: 1,
-    MARS: 2,
-    AVRIL: 3,
-    MAI: 4,
-    JUIN: 5,
-    JUILLET: 6,
-    AOUT: 7,
-    SEPTEMBRE: 8,
-    OCTOBRE: 9,
-    NOVEMBRE: 10,
-    DECEMBRE: 11,
-}
+export const Month = {
+    JANUARY: 0,
+    FEBRUARY: 1,
+    MARCH: 2,
+    APRIL: 3,
+    MAY: 4,
+    JUNE: 5,
+    JULY: 6,
+    AUGUST: 7,
+    SEPTEMBER: 8,
+    OCTOBER: 9,
+    NOVEMBER: 10,
+    DECEMBER: 11,
+};
 
 function setCharAt(str,index,chr) {
     if(index > str.length-1) return str;
@@ -42,8 +42,8 @@ const experiences = [
         ],
     },
     {
-        from: new Date(2021, Month.JANVIER),
-        to: new Date(2021, Month.FEVRIER),
+        from: new Date(2021, Month.JANUARY),
+        to: new Date(2021, Month.FEBRUARY),
         job: "Développeur",
         company: "Ludiconcept",
         description: [

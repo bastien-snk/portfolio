@@ -1,5 +1,7 @@
-<p style="display: inline;">
-    <a href="https://bsnk.tk/">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+<p class="inline">
+    <a href="https://bsnk.tk/" style="my-auto">
         <img src="https://bsnk.tk/favicon-32x32.png?v=4ccd13523eddd3694feac28b19d11786" />
         Reactfolio
     </a>

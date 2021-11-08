@@ -5,6 +5,8 @@
         Reactfolio
     </a>
 <p>
+    
+![](https://cloudinary-a.akamaihd.net/hopwork/image/upload/w_1024,c_limit,dpr_2/khsr0vjuodfclx9qebjk)
 
 ## Stack
 

@@ -19,7 +19,7 @@ function Apropos() {
                     alt=""
                 />
 
-                <div className="
+                <div id="text" className="
                     font-montserrat leading-8 text-lg lg:text-2xl self-center whitespace-pre-line
                     flex flex-col gap-y-7
                     w-9/12 2xl:w-5/12 mr-10 xl:mr-52 pb-10 2xl:pb-0

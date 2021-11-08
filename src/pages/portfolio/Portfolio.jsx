@@ -26,7 +26,7 @@ const projectTypes = {
             name: 'Mission Freelance',
         },
     },
-}
+};
 
 const projects = [
     {

@@ -6,11 +6,23 @@ import React from "react";
 import Button from "../../components/design-system/Button";
 import {Footer, mode as FooterMode} from "../../components/parts/Footer";
 
-const presentationText = [
-    "DÉVELOPPEUR",
-    "FRONT-END",
-    "BACK-END",
-];
+const presentation = {
+    iam: "Je suis",
+    name: "Bastien",
+    text: [
+        "DÉVELOPPEUR",
+        "FRONT-END",
+        "BACK-END",
+    ]
+};
+
+const ideInformations = {
+    jobClassName: "Developer",
+    birthdate: new Date(2001, Month.SEPTEMBER, 20),
+    location: "“📍 Perpignan, France”",
+    degree: true,
+    custom: [],
+};
 
 function CodeElement(props) {
     let style = "text-theme-gray-50 font-fira-code my-auto text-sm xl:text-xl mx-2";

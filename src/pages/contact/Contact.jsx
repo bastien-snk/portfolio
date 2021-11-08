@@ -12,6 +12,7 @@ import Msg from "../../img/contact/base/message.svg";
 import github from "../../img/social/github.png";
 import linkedin from "../../img/social/linkedin.png";
 import malt from "../../img/social/malt.png";
+import {Footer, mode} from "../../components/parts/Footer";
 
 
 export const social = {
@@ -126,11 +127,7 @@ export function Contact() {
                     />
                 </div>
             </div>
-
-
-            <form className="">
-
-            </form>
+            <Footer selectedMode={mode.DARK} />
         </div>
     );
 }

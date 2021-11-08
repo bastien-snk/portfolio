@@ -57,6 +57,32 @@ const presentation = {
     ]
 };
 ```
+    
+```javascript
+const ideInformations = {
+    jobClassName: "Developer", // class Name
+    birthdate: new Date(2001, Month.SEPTEMBER, 20), // birth date
+    location: "“📍 Perpignan, France”", // location
+    degree: true, // have a degree
+    custom: [
+        {
+            name: "",
+            value: true,
+        }
+    ], // custom variables,
+};
+```
+    
+**Custom IDE variables:**
+    
+If you want to add custom variable to IDE, you just have to add objects like this to ideInformations.custom:
+    
+```javascript
+{
+    name: "", // variable name
+    value: true, // variable value
+}
+```
 
 ### Step 2 - About Section
 

@@ -4,7 +4,7 @@ import './style.css';
 import reportWebVitals from './reportWebVitals';
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import Home from "./pages/home/Home";
-import Competences from "./pages/Competences";
+import Competences from "./pages/competences/Competences";
 import {Experience} from "./pages/experience/Experience";
 import {Portfolio} from "./pages/portfolio/Portfolio";
 import {Services} from "./pages/services/Services";

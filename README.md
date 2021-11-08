@@ -71,7 +71,7 @@ const ideInformations = {
         }
     ], // custom variables,
 };
-
+```
     
 **Custom IDE variables:**
     

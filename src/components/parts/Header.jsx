@@ -1,4 +1,4 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import logo from '../../img/logo.svg';
 import close from '../../img/close.svg';
 import menu from '../../img/bars-solid.svg';
@@ -40,6 +40,7 @@ class Header extends Component {
         super(props, context);
         this.state = {menu: false};
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.ref = React.createRef();
     }
 
     toggleMenu() {
@@ -48,6 +49,7 @@ class Header extends Component {
         this.setState({
             menu: value,
         });
+
     }
 
     render() {
@@ -90,7 +92,12 @@ class Header extends Component {
                     />
                 </a>
 
-                <div id="burger-menu" className={[!this.state.menu ? "hidden " : "", " absolute right-0 -mt-7 w-5/12 bg-theme-gray-100 shadow-l-2xl text-theme-white-classic min-h-screen p-5"]}>
+                {/*TODO trouver comment ajouter animation lorsque menu spawn: "transform active:-translate-x-10 transition duration-300"*/}
+                <div
+                    ref={this.ref}
+                    id="burger-menu"
+                    className={[!this.state.menu ? "hidden " : "", " absolute right-0 -mt-7 w-6/12 bg-theme-gray-100 shadow-l-2xl text-theme-white-classic min-h-screen p-5"]}
+                >
                     <img
                         onClick={this.toggleMenu}
                         className="cursor-pointer"
@@ -105,6 +112,8 @@ class Header extends Component {
                     </ul>
                 </div>
             </div>
+
+
 
 
         </div>;

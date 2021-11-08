@@ -29,7 +29,8 @@ export function Footer({selectedMode}) {
                                 height="30"
                             />
                         </a>
-                    )}
+                    )
+                }
             </div>
         </div>
     );

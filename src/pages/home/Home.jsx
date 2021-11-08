@@ -5,6 +5,7 @@ import Apropos from "./sections/Apropos";
 import React from "react";
 import Button from "../../components/design-system/Button";
 import {Footer, mode as FooterMode} from "../../components/parts/Footer";
+import {Month} from "../experience/Experience";
 
 const presentation = {
     iam: "Je suis",
@@ -41,7 +42,7 @@ function Home() {
         <div>
             <div className="bg-theme-gray-250 min-w-screen min-h-screen mx-auto">
                 <Header />
-                <div className="flex flex-col lg:flex-row text-theme-white-classic justify-center xl:justify-around mt-12 lg:mt-40 z-40 relative">
+                <div className="flex flex-col lg:flex-row text-theme-white-classic justify-center xl:justify-around mt-12 lg:mt-40 z-30 relative">
 
                     {/*
                     TODO
@@ -50,25 +51,25 @@ function Home() {
                         gap-x IDE et texte
                         regler problème header en dehors de la div
                     */}
-                    <div id="PRESENTATION" className={"my-auto justify-self-center self-center z-40"}>
+                    <div id="PRESENTATION" className={"my-auto justify-self-center self-center z-30"}>
 
                         <div id="iam" className="flex flex-row">
                             <CodeElement balise="p" closing={false} />
-                            <p className="text-5xl">Je suis</p>
+                            <p className="text-5xl">{ presentation.iam }</p>
                             <CodeElement balise="p" closing={true} />
                         </div>
 
                         <div id="Prenom" className="flex flex-row -mb-4">
                             <CodeElement balise="h1" closing={false} />
-                            <h1 className="text-theme-yellow-F49F0A font-bold text-6xl">Bastien</h1>
+                            <h1 className="text-theme-yellow-F49F0A font-bold text-6xl">{ presentation.name }</h1>
                             <CodeElement balise="h1" closing={true} />
                         </div>
 
                         <div id="Metier" className="flex flex-col mt-4">
                             <CodeElement balise="p" />
 
-                            {presentationText.map(line =>
-                                    <span key={presentationText.indexOf(line)} className="flex flex-row">
+                            {presentation.text.map(line =>
+                                    <span key={presentation.text.indexOf(line)} className="flex flex-row">
                                         <p className="text-4xl leading-9 ml-8">{ line }</p>
                                         <CodeElement balise="br" selfClosing={true} />
                                     </span>
@@ -84,7 +85,7 @@ function Home() {
                         </div>
                     </div>
 
-                    <div id="IDE" className="w-11/12 md:w-7/12 lg:w-5/12 xl:w-4/12 self-center z-40">
+                    <div id="IDE" className="w-11/12 md:w-7/12 lg:w-5/12 xl:w-4/12 self-center z-30">
                         <IDE
                             windowName="Bastien.dev"
                             linesIndex={true}
@@ -92,7 +93,7 @@ function Home() {
                             <div>
                                 <div id="codeLine1" className=" flex flex-row">
                                     <p id="classCode" className={wordSpacing + "text-theme-dev-orange"}>class</p>
-                                    <p id="classCode" className={wordSpacing + "text-theme-dev-yellow"}>Developer</p>
+                                    <p id="classCode" className={wordSpacing + "text-theme-dev-yellow"}>{ideInformations.jobClassName}</p>
                                     <p id="classCode" className={wordSpacing + "text-theme-dev-white"}>{" {"}</p>
                                 </div>
                                 <br />
@@ -104,9 +105,13 @@ function Home() {
 
                                 <Variable variableName="name" variableValue={"“Bastien S.”"} />
                                 <Variable variableName="job" variableValue={"“Développeur FullStack”"} />
-                                <Variable variableName="age" variableValue={ parseInt(calculateAge(new Date(2001, 9, 20))) } />
-                                <Variable variableName="location" variableValue={"“📍 Perpignan, France”"} />
-                                <Variable variableName="degree" variableValue={true} />
+                                <Variable variableName="age" variableValue={ parseInt(calculateAge(ideInformations.birthdate)) } />
+                                <Variable variableName="location" variableValue={ideInformations.location} />
+                                <Variable variableName="degree" variableValue={ideInformations.degree} />
+
+                                {ideInformations.custom.map(variable =>
+                                    <Variable variableName={variable.name} variableValue={variable.value} />
+                                )}
 
                                 <div id="codeLine9" className="flex flex-row">
                                     <p id="classCode" className={wordSpacing + "text-theme-dev-white pl-4"}>{"}"}</p>
@@ -130,7 +135,7 @@ function Home() {
                 </div>
 
                 <img
-                    className="inset-x-0 bottom-0 z-40 lg:mt-12"
+                    className="inset-x-0 bottom-0 z-30 lg:mt-12"
                     src={transitionTop}
                     srcSet={transitionTop}
                     width="100%"

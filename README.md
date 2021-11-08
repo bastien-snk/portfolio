@@ -46,8 +46,6 @@ $PROJECT_ROOT
 
 Go to `/src/pages/home/Home.jsx` and replace written strings by your informations:
 
-### Home presentation
-
 ```javascript
 const presentation = {
     iam: "Je suis",
@@ -60,11 +58,11 @@ const presentation = {
 };
 ```
 
-### About Section
+### Step 2 - About Section
 
 Go to `/src/pages/home/sections/Apropos.jsx` and go to HTML div with id "text", then replace text by yours.
 
-### Projects Section
+### Step 3 - Experience Section
 
 Go to `/src/pages/experience/Experience.jsx` and replace written strings by your professional experiences:
 
@@ -136,7 +134,7 @@ const experiences = [
 ];
 ```
 
-### Services Section
+### Step 4 - Services Section
 
 Go to `/src/pages/services/Service.jsx` and replace written objects by your informations:
 
@@ -156,7 +154,7 @@ const services = [
 ];
 ```
 
-### Portfolio Section
+### Step 5 - Portfolio Section
 
 Go to `/src/pages/portfolio/Portfolio.jsx` and replace written objects by your informations:
 

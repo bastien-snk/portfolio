@@ -66,7 +66,7 @@ class Field extends React.Component {
 
 
                     {
-                        this.props.type == "textarea" ?
+                        this.props.type === "textarea" ?
                             <textarea
                                 id="story"
                                 name={this.props.name}
@@ -80,7 +80,7 @@ class Field extends React.Component {
                     }
 
                     {
-                        this.props.type == undefined ?
+                        this.props.type === undefined ?
                             <input
                                 ref={this.inputFocus.ref}
                                 onClick={this.inputFocus.setFocus}
@@ -93,7 +93,7 @@ class Field extends React.Component {
                     }
 
                     {
-                        this.props.type == "select" ?
+                        this.props.type === "select" ?
                             <select name={this.props.name} className={ this.style + " h-18" }>
                                 {this.props.select.map(option => <option value={ option.toString() }>{ option.toString() }</option>)}
                             </select>

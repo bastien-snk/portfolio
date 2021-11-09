@@ -35,7 +35,7 @@ export function Services() {
                 {/*TODO width des bouttons qui s'adapte au texte qui est dedans*/}
                 <div id="services" className="flex flex-col w-8/12 mx-auto justify-self-center">
                     {services.map(service =>
-                        <div key={services.indexOf(service)} className={"justify-self-center flex flex-col xl:flex-row gap-x-16 py-16" + (services.indexOf(service) %2 == 0 ? " flex-row " : " flex-row-reverse ")}>
+                        <div key={services.indexOf(service)} className={"justify-self-center flex flex-col gap-x-16 py-16" + (services.indexOf(service) %2 == 0 ? " xl:flex-row " : " xl:flex-row-reverse ")}>
                             <img
                                 className={"rounded-full my-auto mx-auto"}
                                 src={ service.img }

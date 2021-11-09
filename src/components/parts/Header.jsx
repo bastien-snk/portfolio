@@ -31,9 +31,7 @@ const pages = [
         name: "✉️ Contact",
     },
 ];
-//TODO
-// on scroll enlever menu burger
-// désactiver scroll quand menu burger activé
+
 class Header extends Component {
 
     constructor(props, context) {
@@ -43,13 +41,22 @@ class Header extends Component {
         this.ref = React.createRef();
     }
 
+    componentDidMount() {
+        window.addEventListener('scroll', () => {
+            this.setState({menu: false});
+        });
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', null);
+    }
+
     toggleMenu() {
         let value = !this.state.menu;
 
         this.setState({
             menu: value,
         });
-
     }
 
     render() {
@@ -96,7 +103,7 @@ class Header extends Component {
                 <div
                     ref={this.ref}
                     id="burger-menu"
-                    className={[!this.state.menu ? "hidden " : "", " absolute right-0 -mt-7 w-6/12 bg-theme-gray-100 shadow-l-2xl text-theme-white-classic min-h-screen p-5"]}
+                    className={[!this.state.menu ? "hidden " : "", " absolute right-0 -mt-7 w-6/12 bg-theme-gray-100 shadow-l-2xl text-theme-white-classic min-h-screen p-5 overflow-hidden"]}
                 >
                     <img
                         onClick={this.toggleMenu}

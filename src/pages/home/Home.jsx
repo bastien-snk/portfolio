@@ -46,9 +46,6 @@ function Home() {
 
                     {/*
                     TODO
-                        center presentation
-                        add ombre rounds + ide + header
-                        gap-x IDE et texte
                         regler problème header en dehors de la div
                     */}
                     <div id="PRESENTATION" className={"my-auto justify-self-center self-center z-30"}>
@@ -85,7 +82,7 @@ function Home() {
                         </div>
                     </div>
 
-                    <div id="IDE" className="w-11/12 md:w-7/12 lg:w-5/12 xl:w-4/12 self-center z-30">
+                    <div id="IDE" className="w-11/12 md:w-7/12 lg:w-5/12 xl:w-4/12 self-center z-30" style={{filter: "drop-shadow(-15px -15px 17px rgba(2, 2, 2, 0.25))"}}>
                         <IDE
                             windowName="Bastien.dev"
                             linesIndex={true}
@@ -128,9 +125,9 @@ function Home() {
 
                 <div className="hidden md:block absolute right-0 -bottom-4 sm:bottom-20 lg:top-40 xl:top-12">
                     <div className="relative float-right fixed z-0 bottom-0">
-                        <div className="bg-theme-yellow-F49F0A rounded-l-full w-40 h-80 z-30"></div>
-                        <div className="bg-theme-yellow-F6AA28 rounded-full w-56 h-56 absolute -left-28 -bottom-16"></div>
-                        <div className="bg-theme-yellow-F7B23B rounded-full w-44 h-44 absolute -left-44 -bottom-32"></div>
+                        <div className="bg-theme-yellow-F49F0A rounded-l-full w-40 h-80 z-30 shadow-2xl" style={{filter: "drop-shadow(-15px -15px 17px rgba(2, 2, 2, 0.25))"}}></div>
+                        <div className="bg-theme-yellow-F6AA28 rounded-full w-56 h-56 absolute -left-28 -bottom-16 -shadow-2xl" style={{filter: "drop-shadow(-15px -15px 17px rgba(2, 2, 2, 0.25))"}}></div>
+                        <div className="bg-theme-yellow-F7B23B rounded-full w-44 h-44 absolute -left-44 -bottom-32 -shadow-2xl" style={{filter: "drop-shadow(-15px -15px 17px rgba(2, 2, 2, 0.25))"}}></div>
                     </div>
                 </div>
 

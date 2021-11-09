@@ -45,7 +45,7 @@ export function Services() {
                                 width="428"
                                 height="428"
                             />
-                            <div className="flex flex-col flex-1 my-auto">
+                            <div className="flex flex-col flex-1 mt-10">
                                 <h1 className="text-theme-yellow-F49F0A text-4xl font-bold pb-4">{ service.name }</h1>
                                 <p className="text-theme-white-classic text-2xl">{ service.summary }</p>
                                 <div className="justify-center flex flex-row gap-x-8 font-semibold">

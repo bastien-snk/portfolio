@@ -127,7 +127,6 @@ function ProjectCard({project}) {
 export class Portfolio extends React.Component {
 
     render() {
-        projects.map(project => console.log(project.img));
 
         return (
             <div className="bg-theme-gray-150 min-w-screen min-h-screen">

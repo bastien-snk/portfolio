@@ -13,7 +13,7 @@ import github from "../../img/social/github.png";
 import linkedin from "../../img/social/linkedin.png";
 import malt from "../../img/social/malt.png";
 import {Footer, mode} from "../../components/parts/Footer";
-
+import nodemailer from "nodemailer";
 
 export const social = {
     GITHUB: {
@@ -36,14 +36,14 @@ const utilizeFocus = () => {
     return {setFocus, ref}
 }
 
+//TODO
+// add focus to labels
+// add mail send
 class Field extends React.Component {
 
     constructor(props, context) {
         super(props, context);
-        /*this.ref = React.createRef();*/
-        /*this.setFocus = this.setFocus.bind(this);*/
         this.inputFocus = utilizeFocus();
-
         this.style = "z-30 flex-1 p-3 bg-theme-gray-150 text-theme-white-classic text-2xl focus:ring-transparent focus:text-theme-yellow-F49F0A rounded-r-3xl border-0 w-full focus:shadow-yellow";
     }
 
@@ -95,7 +95,7 @@ class Field extends React.Component {
                     {
                         this.props.type === "select" ?
                             <select name={this.props.name} className={ this.style + " h-18" }>
-                                {this.props.select.map(option => <option value={ option.toString() }>{ option.toString() }</option>)}
+                                {this.props.select.map(option => <option key={this.props.select.indexOf(option)} value={ option.toString() }>{ option.toString() }</option>)}
                             </select>
                         :
                             <></>
@@ -109,14 +109,15 @@ class Field extends React.Component {
 
 
 export function Contact() {
+
     return (<div className="bg-theme-gray-250 min-w-screen min-h-screen">
             <Header />
             <Section id="contact" name="✉️ Contact" />
 
             <div className="flex justify-center">
-                <div className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28">
+                <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28" onSubmit={sendMail}>
                     <Field name="email" display="Email" img={ MailFocus } />
-                    <Field name="objet" display="Objet" img={ ObjetFocus } type="select" select={["Proposition de mission", "Report de bug"]} />
+                    <Field name="objet" display="Objet" img={ ObjetFocus } type="select" select={["Demander un devis", "Report de bug", "Autre..."]} />
                     <Field name="nom" display="Nom" img={NomFocus} />
                     <Field name="message" display="Message" img={MsgFocus} type="textarea" />
 
@@ -125,9 +126,23 @@ export function Contact() {
                         type="submit"
                         value="Envoyer"
                     />
-                </div>
+                </form>
+
             </div>
             <Footer selectedMode={mode.DARK} />
         </div>
     );
+}
+
+async function sendMail() {
+    const nodemailer = require('nodemailer');
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 587,
+        auth: {
+            user: 'siniak.bastien@gmail.com',
+            pass: 'Elina13022009',
+        },
+    });
+    transporter.verify().then(console.log).catch(console.error);
 }

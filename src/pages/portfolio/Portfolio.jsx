@@ -1,6 +1,6 @@
 import React from "react";
 import Section from "../../components/design-system/Section";
-import GitHubIcon from "../../img/github.png"
+import GitHubIcon from "../../img/projects/github.png"
 import Header from "../../components/parts/Header";
 import lyra from "../../img/projects/lyra.png";
 import rc from "../../img/projects/rcv3.png";

@@ -2,7 +2,6 @@ import Header from '../../components/parts/Header.jsx';
 import { Doughnut, Pie, ChartProps } from 'react-chartjs-2';
 import {Footer, mode} from "../../components/parts/Footer";
 import Section from "../../components/design-system/Section";
-import languages from "../../img/competences/languages.jpg";
 
 const competences = [
     {

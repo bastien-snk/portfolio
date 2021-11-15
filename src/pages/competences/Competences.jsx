@@ -4,6 +4,7 @@ import {Footer, mode} from "../../components/parts/Footer";
 import Section from "../../components/design-system/Section";
 import transition from "../../img/transitions/competences/1.png";
 import React from "react";
+import {Cursor} from "../../animations/Cursor";
 
 const competences = [
     {
@@ -172,7 +173,7 @@ function List({list}) {
 function Competences() {
     let test = true;
     return (
-        <div>
+        <Cursor width={5} height={5}>
             <div className="bg-theme-gray-200 min-w-screen min-h-screen">
                 <Header />
                 <Section name="🔧 Compétences" id="competences" />
@@ -231,7 +232,7 @@ function Competences() {
                 <Footer selectedMode={mode.DARK} />
             </div>
 
-        </div>
+        </Cursor>
     );
 }
 

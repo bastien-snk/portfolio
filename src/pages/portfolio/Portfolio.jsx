@@ -10,6 +10,7 @@ import ludi from "../../img/projects/ludi.png";
 import bolt from "../../img/projects/bolt.png";
 import transition from "../../img/transitions/portfolio/1.png";
 import {Footer, mode} from "../../components/parts/Footer";
+import {Cursor} from "../../animations/Cursor";
 
 const projectTypes = {
     PERSONNAL: {
@@ -127,30 +128,31 @@ function ProjectCard({project}) {
 export class Portfolio extends React.Component {
 
     render() {
-
         return (
-            <div className="bg-theme-gray-150 min-w-screen min-h-screen">
-                <Header />
-                <Section name="🖥️ Portfolio" id="portfolio" />
+            <Cursor width={5} height={5}>
+                <div className="bg-theme-gray-150 min-w-screen min-h-screen">
+                    <Header />
+                    <Section name="🖥️ Portfolio" id="portfolio" />
 
-                <div className="pt-28 justify-self-center grid lg:grid-cols-2 xl:grid-cols-3 gap-x-12 gap-y-10 mx-auto w-10/12">
-                    {projects.map(project =>
-                        <div key={projects.indexOf(project)} className="justify-self-center">
-                            <ProjectCard project={project} />
-                        </div>)
-                    }
+                    <div className="pt-28 justify-self-center grid lg:grid-cols-2 xl:grid-cols-3 gap-x-12 gap-y-10 mx-auto w-10/12">
+                        {projects.map(project =>
+                            <div key={projects.indexOf(project)} className="justify-self-center">
+                                <ProjectCard project={project} />
+                            </div>)
+                        }
+                    </div>
+
+                    <img
+                        className="bottom-0 z-40 mt-32 bg-theme-gray-250"
+                        src={transition}
+                        srcSet={transition}
+                        width="100%"
+                        height="100%"
+                        alt=""
+                    />
+                    <Footer selectedMode={mode.DARK} />
                 </div>
-
-                <img
-                    className="bottom-0 z-40 mt-32 bg-theme-gray-250"
-                    src={transition}
-                    srcSet={transition}
-                    width="100%"
-                    height="100%"
-                    alt=""
-                />
-                <Footer selectedMode={mode.DARK} />
-            </div>
+            </Cursor>
         );
     }
 }

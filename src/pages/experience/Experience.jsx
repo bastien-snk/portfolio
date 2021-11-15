@@ -4,6 +4,7 @@ import Section from "../../components/design-system/Section";
 import Header from "../../components/parts/Header";
 import IDE from "../../components/IDE";
 import {Footer, mode} from "../../components/parts/Footer";
+import {Cursor} from "../../animations/Cursor";
 
 export const Month = {
     JANUARY: 0,
@@ -70,65 +71,67 @@ export class Experience extends React.Component {
 
     render() {
         return (
-            <div className="bg-theme-gray-250 ">
-                <Header />
-                <Section name="💼 Expérience" id="experience" />
+            <Cursor width={5} height={5}>
+                <div className="bg-theme-gray-250 ">
+                    <Header />
+                    <Section name="💼 Expérience" id="experience" />
 
-                <div id="content" className="py-32 flex flex-row justify-center gap-x-12 lg:gap-x-36">
-                    <div className="xl:w-2/12">
-                        <div id="exp-list" className="font-fira-code text-theme-white-classic text-2xl flex flex-col border-r-3 border-theme-gray-200">
-                            {
-                                experiences.map(experience =>
-                                    <div
-                                        key={experiences.indexOf(experience)}
-                                        className={[
-                                            experiences.indexOf(this.state.experience) == experiences.indexOf(experience) ? " bg-theme-gray-200 text-theme-yellow-F49F0A border-b-3 border-theme-yellow-F49F0A " : " text-theme-white-classic cursor-pointer hover:bg-theme-gray-150 ",
-                                            " h-14 text-center"]
-                                        }
-                                        onClick={(e) => this.selectExperience(experiences.indexOf(experience))}
-                                    >
-                                        <p>{ experience.displayName? experience.displayName : experience.company }</p>
+                    <div id="content" className="py-32 flex flex-row justify-center gap-x-12 lg:gap-x-36">
+                        <div className="xl:w-2/12">
+                            <div id="exp-list" className="font-fira-code text-theme-white-classic text-2xl flex flex-col border-r-3 border-theme-gray-200">
+                                {
+                                    experiences.map(experience =>
+                                        <div
+                                            key={experiences.indexOf(experience)}
+                                            className={[
+                                                experiences.indexOf(this.state.experience) == experiences.indexOf(experience) ? " bg-theme-gray-200 text-theme-yellow-F49F0A border-b-3 border-theme-yellow-F49F0A " : " text-theme-white-classic cursor-pointer hover:bg-theme-gray-150 ",
+                                                " h-14 text-center"]
+                                            }
+                                            onClick={(e) => this.selectExperience(experiences.indexOf(experience))}
+                                        >
+                                            <p>{ experience.displayName? experience.displayName : experience.company }</p>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div>
+                        <div className="xl:w-3/12">
+                            <IDE
+                                windowName="Experience.pro"
+                                lines={
+                                    <div>
+                                        <h1 className="text-theme-white-classic text-2xl">
+                                            { this.state.experience.job }
+                                            <b className="text-theme-yellow-F49F0A"> @{ this.state.experience.company }</b>
+                                        </h1>
+                                        <h2 className="text-theme-gray-50 font-semibold">
+                                            {this.state.experience.from == null || this.state.experience.to == null
+                                                ?
+                                                <p>Actuellement</p>
+                                                :
+                                                <p>{formatDate(this.state.experience.from)} - {formatDate(this.state.experience.to)}</p>
+                                            }
+                                        </h2>
+                                        <p className="text-theme-white-classic text-justify flex flex-col">
+                                            {this.state.experience.description?.map(line => <p key={line}>{line}</p>)}
+                                        </p>
                                     </div>
-                                )
-                            }
+                                }
+                            />
                         </div>
                     </div>
-                    <div className="xl:w-3/12">
-                        <IDE
-                            windowName="Experience.pro"
-                            lines={
-                                <div>
-                                    <h1 className="text-theme-white-classic text-2xl">
-                                        { this.state.experience.job }
-                                        <b className="text-theme-yellow-F49F0A"> @{ this.state.experience.company }</b>
-                                    </h1>
-                                    <h2 className="text-theme-gray-50 font-semibold">
-                                    {this.state.experience.from == null || this.state.experience.to == null
-                                        ?
-                                            <p>Actuellement</p>
-                                        :
-                                            <p>{formatDate(this.state.experience.from)} - {formatDate(this.state.experience.to)}</p>
-                                    }
-                                    </h2>
-                                    <p className="text-theme-white-classic text-justify flex flex-col">
-                                        {this.state.experience.description?.map(line => <p key={line}>{line}</p>)}
-                                    </p>
-                                </div>
-                            }
-                        />
-                    </div>
-                </div>
 
-                <img
-                    className="bottom-0 z-40 mt-32"
-                    src={transition}
-                    srcSet={transition}
-                    width="100%"
-                    height="100%"
-                    alt=""
-                />
-                <Footer selectedMode={mode.LIGHT} />
-            </div>
+                    <img
+                        className="bottom-0 z-40 mt-32"
+                        src={transition}
+                        srcSet={transition}
+                        width="100%"
+                        height="100%"
+                        alt=""
+                    />
+                    <Footer selectedMode={mode.LIGHT} />
+                </div>
+            </Cursor>
         );
     }
 }

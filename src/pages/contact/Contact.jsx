@@ -114,7 +114,7 @@ export function Contact() {
             <Section id="contact" name="✉️ Contact" />
 
             <div className="flex justify-center">
-                <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28" onSubmit={sendMail}>
+                <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28">
                     <Field name="email" display="Email" img={ MailFocus } />
                     <Field name="objet" display="Objet" img={ ObjetFocus } type="select" select={["Demander un devis", "Report de bug", "Autre..."]} />
                     <Field name="nom" display="Nom" img={NomFocus} />

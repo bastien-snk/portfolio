@@ -17,7 +17,7 @@ export class Cursor extends Component {
 
     render(props) {
         return <div style={{cursor: "none"}} className="hover:cursor-none">
-            <div id="cursor" className="scale-0 xl:scale-100 absolute w-5 h-5 border-1 border-theme-white-classic rounded-full z-50 transform duration-200 ease-out " style={{display: "none"}}></div>
+            <div id="cursor" className="scale-0 xl:scale-100 absolute w-5 h-5 border-1 border-theme-white-classic rounded-full z-30 transform duration-200 ease-out " style={{display: "none"}}></div>
 
             {this.props.children}
         </div>

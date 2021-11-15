@@ -2,6 +2,8 @@ import Header from '../../components/parts/Header.jsx';
 import { Doughnut, Pie, ChartProps } from 'react-chartjs-2';
 import {Footer, mode} from "../../components/parts/Footer";
 import Section from "../../components/design-system/Section";
+import transition from "../../img/transitions/competences/1.png";
+import React from "react";
 
 const competences = [
     {
@@ -218,8 +220,17 @@ function Competences() {
                     }
                 </div>
 
+                <img
+                    className="inset-x-0 bottom-0 z-40 lg:mt-6 transform rotate-180"
+                    src={transition}
+                    srcSet={transition}
+                    width="100%"
+                    height="100%"
+                    alt=""
+                />
                 <Footer selectedMode={mode.DARK} />
             </div>
+
         </div>
     );
 }

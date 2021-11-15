@@ -11,16 +11,16 @@ const pages = [
         name: "📝 À Propos",
     },
     {
+        href: "/services",
+        name: "⚙️ Mes services",
+    },
+    {
         href: "/competences",
         name: "🔧 Compétences",
     },
     {
         href: "/experience",
         name: "💼 Expérience",
-    },
-    {
-        href: "/services",
-        name: "⚙️ Mes services",
     },
     {
         href: "/portfolio",
@@ -60,7 +60,7 @@ class Header extends Component {
     }
 
     render() {
-        return <div className={"flex font-montserrat pt-7 xl:justify-center sticky top-0 z-50 shadow-inner shadow-2xl"}>
+        return <div className={"absolute flex font-montserrat pt-7 xl:justify-center sticky top-0 z-50 shadow-inner shadow-2xl"}>
             <a id="logo" href="/" className={hoverAnimation}>
                 <div className="flex ml-16 xl:ml-0">
                     <img
@@ -80,7 +80,7 @@ class Header extends Component {
             {!this.state.menu ?
                 <nav className="ml-12 relative">
                     <ul className="mt-2 text-theme-white-classic hidden xl:flex lg:sh">
-                        {pages.map(page => <li className={"mr-11 " + hoverAnimation }><a href={page.href}>{page.name}</a></li>)}
+                        {pages.map(page => <li key={page.href} className={"mr-11 " + hoverAnimation }><a href={page.href}>{page.name}</a></li>)}
                     </ul>
                 </nav>
                 :
@@ -115,7 +115,7 @@ class Header extends Component {
                         alt=""
                     />
                     <ul className="py-5">
-                        {pages.map(page => <li className={"py-1 " + hoverAnimation }><a href={page.href}>{page.name}</a></li>)}
+                        {pages.map(page => <li key={page.href} className={"py-1 " + hoverAnimation }><a href={page.href}>{page.name}</a></li>)}
                     </ul>
                 </div>
             </div>

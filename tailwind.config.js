@@ -66,6 +66,9 @@ module.exports = {
       boxShadow: {
         yellow: '0px 0px 17px 0 #F49F0A',
       },
+      cursor: {
+        none: "none",
+      }
     },
 
   },

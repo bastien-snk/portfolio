@@ -9,7 +9,7 @@ function Apropos() {
         <div className="bg-theme-gray-150 min-w-screen min-h-screen">
             <Section name="📝 À Propos" id="a-propos" />
 
-            <div className="flex flex-col lg:flex-row justify-center xl:justify-between gap-x-24 mt-20 mx-auto">
+            <div className="flex flex-col lg:flex-row justify-center justify-items-center xl:justify-between gap-x-24 mt-20 mx-auto">
                 <img
                     className="rounded-full border-5 border-theme-white-classic mx-auto lg:ml-10 xl:ml-48 self-center w-48 h-48 lg:w-96 lg:h-96 z-40 lg:-mt-80 xl:mt-0 xl:mb-44 2xl:mb-56"
                     src={ pdp }
@@ -20,9 +20,10 @@ function Apropos() {
                 />
 
                 <div id="text" className="
+                    mx-auto
                     font-montserrat leading-8 text-lg lg:text-2xl self-center whitespace-pre-line
                     flex flex-col gap-y-7
-                    w-9/12 2xl:w-5/12 mr-10 xl:mr-52 pb-10 2xl:pb-0
+                    w-9/12 2xl:w-5/12 xl:mr-10 xl:mr-52 pb-10 2xl:pb-0
                     text-theme-white-classic text-justify
                 ">
                     <p>

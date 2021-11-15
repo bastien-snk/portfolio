@@ -13,7 +13,6 @@ import github from "../../img/social/github.png";
 import linkedin from "../../img/social/linkedin.png";
 import malt from "../../img/social/malt.png";
 import {Footer, mode} from "../../components/parts/Footer";
-import nodemailer from "nodemailer";
 
 export const social = {
     GITHUB: {
@@ -132,17 +131,4 @@ export function Contact() {
             <Footer selectedMode={mode.DARK} />
         </div>
     );
-}
-
-async function sendMail() {
-    const nodemailer = require('nodemailer');
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        auth: {
-            user: 'siniak.bastien@gmail.com',
-            pass: 'Elina13022009',
-        },
-    });
-    transporter.verify().then(console.log).catch(console.error);
 }

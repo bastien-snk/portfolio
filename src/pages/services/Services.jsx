@@ -4,29 +4,63 @@ import React from "react";
 import Button from "../../components/design-system/Button";
 import siteweb from "../../img/services/site-web.png";
 import mobileapp from "../../img/services/mobile-app.png";
+import db from "../../img/services/db.jpg";
+import hosting from "../../img/services/hosting.jpg";
+import ui from "../../img/services/ui.jpg";
 import {Footer, mode} from "../../components/parts/Footer";
 import transition from "../../img/transitions/portfolio/1.png";
 import {Cursor} from "../../animations/Cursor";
+import {Parenthesis} from "../../index";
 
 const services = [
     {
         name: 'Sites Web',
-        summary: <p>Développement de votre site web responsive</p>,
+        summary: <p>Développement d'un site web responsive répondant à vos besoins <Parenthesis text="Back-End & Front-End" />.
+            Maintenance de votre site web déjà existant.
+        </p>,
         href: "",
         img: siteweb,
     },
     {
         name: 'Applications mobile',
-        summary: 'Lorem ipsum dolor sit amet. Aut aliquam voluptas in odio nobis non placeat ipsa aut \n' +
-            'Quis tenetur aut amet eius et expedita iste. Non voluptas nihil in deleniti dolorem eum quaerat aperiam sed sapiente nemo et enim rerum vel eaque eligendi? Qui saepe quia sed dolor natus cum nemo natus ab provident quae sit illo doloremque ut veniam dolorem sed inventore iste. Id maxime natus qui porro quia est maiores beatae quo cumque debitis.',
+        summary: <p>
+                Développement d'une application mobile multi-plateformes (iOS & Android) vous correspondant.
+        </p>,
         href: "",
         img: mobileapp,
+    },
+    {
+        name: 'Conception et administration de Bases de données',
+        summary: <p>
+            Conception de Modèles conceptuels de données pour vos bases de données relationnelles.
+            Conception de Schémas de données pour vos bases de données orientées documents.
+        </p>,
+        href: "",
+        img: db,
+    },
+    {
+        name: 'Noms de domaines et hébergement',
+        summary: <p>
+            Recherche d'offres d'hébergement adaptées à vos besoins.
+            Enregistrement et configuration de vos noms de domaines, ajout de certificats HTTPS.
+            Déploiement de vos sites web, services back-end.
+        </p>,
+        href: "",
+        img: hosting,
+    },
+    {
+        name: 'UI / UX Design',
+        summary: <p>
+            Conception d'interfaces graphiques correspondant à vos besoins.
+        </p>,
+        href: "",
+        img: ui,
     },
 ];
 
 export function Services() {
     return (
-        <Cursor width={5} height={5} >
+        <Cursor width={5} height={5}>
             <div className="relative">
                 <div className="bg-theme-gray-250 min-w-screen min-h-screen">
                     <Header />
@@ -45,8 +79,8 @@ export function Services() {
                                     height="428"
                                 />
                                 <div className="flex flex-col flex-1 mt-10">
-                                    <h1 className="text-theme-yellow-F49F0A text-4xl font-bold pb-4">{ service.name }</h1>
-                                    <p className="text-theme-white-classic text-2xl">{ service.summary }</p>
+                                    <h1 className="text-theme-yellow-F49F0A text-3xl font-bold pb-4">{ service.name }</h1>
+                                    <p className="text-theme-white-classic text-lg">{ service.summary }</p>
                                     <div className="justify-center flex flex-row gap-x-8 font-semibold my-10">
                                         <Button href="/contact" text="DEMANDER UN DEVIS" />
                                         <Button mode="light" href={ "/service/" + service.href} text="EN SAVOIR PLUS" />

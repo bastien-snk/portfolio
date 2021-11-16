@@ -10,6 +10,14 @@ import {Portfolio} from "./pages/portfolio/Portfolio";
 import {Services} from "./pages/services/Services";
 import {Contact} from "./pages/contact/Contact";
 
+export function TechnicalLanguage({text}) {
+    return <p className="inline text-theme-yellow-F49F0A">{text}</p>
+}
+
+export function Parenthesis({text}) {
+    return <p className="inline text-sm text-theme-gray-50">({text})</p>
+}
+
 ReactDOM.render(
   <React.StrictMode>
       <Router>

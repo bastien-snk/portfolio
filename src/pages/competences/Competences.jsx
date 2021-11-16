@@ -5,6 +5,7 @@ import Section from "../../components/design-system/Section";
 import transition from "../../img/transitions/competences/1.png";
 import React from "react";
 import {Cursor} from "../../animations/Cursor";
+import {Parenthesis, TechnicalLanguage} from "../../index";
 
 const competences = [
     {
@@ -152,13 +153,7 @@ const competences = [
     },
 ];
 
-function TechnicalLanguage({text}) {
-    return <p className="inline text-theme-yellow-F49F0A">{text}</p>
-}
 
-function Parenthesis({text}) {
-    return <p className="inline text-sm text-theme-gray-50">({text})</p>
-}
 
 function List({list}) {
     return <ul className="list ml-4 grid grid-cols-1 md:grid-cols-2">
@@ -182,7 +177,7 @@ function Competences() {
                     {
                         competences.map(competence =>
                             <div key={competence.title} className={["justify-center flex flex-col-reverse gap-x-16 ", competences.indexOf(competence) %2 == 0 ? " lg:flex-row " : " lg:flex-row-reverse " ]}>
-                                <div className="w-60 h-60 mt-10 lg:mt-0 lg:w-80 lg:h-80 xl:w-[128px] xl:h-[128px] my-auto mx-auto">
+                                <div className="w-60 h-60 mt-10 lg:w-80 lg:h-80 xl:w-[128px] xl:h-[128px] my-auto mx-auto">
                                     <Doughnut
                                         options={{
                                             plugins: {

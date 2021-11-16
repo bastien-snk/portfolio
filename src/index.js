@@ -9,6 +9,7 @@ import {Experience} from "./pages/experience/Experience";
 import {Portfolio} from "./pages/portfolio/Portfolio";
 import {Services} from "./pages/services/Services";
 import {Contact} from "./pages/contact/Contact";
+import {CV} from "./pages/cv/CV.jsx";
 
 export function TechnicalLanguage({text}) {
     return <p className="inline text-theme-yellow-F49F0A">{text}</p>
@@ -28,6 +29,7 @@ ReactDOM.render(
           <Route path="/services" exact component={Services} />
           <Route path="/portfolio" exact component={Portfolio} />
           <Route path="/contact" exact component={Contact} />
+          <Route path="/cv" exact component={CV} />
       </Router>
   </React.StrictMode>,
   document.getElementById('root')

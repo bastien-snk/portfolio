@@ -37,9 +37,7 @@ const experiences = [
         job: "Développeur",
         company: "Indépendant",
         description: [
-            "A",
-            "B",
-            "C"
+            "En tant que développeur indépendant, je réponds à vos demandes en créant des applications web / mobile, des logiciels ou tout autre outil technique en fonction de vos besoins.",
         ],
     },
     {
@@ -48,10 +46,10 @@ const experiences = [
         job: "Développeur",
         company: "Ludiconcept",
         description: [
-            "A",
-            "B",
-            "C"
+            "Développement d'un support de jeu de société basé sur l'archéologie, avec génération aléatoire de scénarios, afin de gérer les parties du jeu en PHP (Symfony). ",
+            "Mise en place d’une base de données SQL ainsi que d’un VPS sous Debian 10.",
         ],
+        tech: ["MySQL", "PHP", "Symfony", "Linux", "Docker"],
     },
 ];
 
@@ -112,8 +110,20 @@ export class Experience extends React.Component {
                                                 <p>{formatDate(this.state.experience.from)} - {formatDate(this.state.experience.to)}</p>
                                             }
                                         </h2>
-                                        <p className="text-theme-white-classic text-justify flex flex-col">
-                                            {this.state.experience.description?.map(line => <p key={line}>{line}</p>)}
+                                        <p className="text-theme-white-classic font-montserrat leading-5 flex flex-col">
+                                            {this.state.experience.description?.map(line => <p className="pt-3" key={line}>{line}</p>)}
+
+                                            {
+                                                this.state.experience.tech?
+                                                    <p>
+                                                        <p className={"pt-3 text-theme-yellow-F49F0A"}>Technologies utilisées:</p>
+                                                        <ul className="list ml-4">
+                                                            {this.state.experience.tech.map(techno => <li><p className="text-theme-white-classic ml-2">{techno.toString()}</p></li>)}
+                                                        </ul>
+                                                    </p>
+                                                :
+                                                    <></>
+                                            }
                                         </p>
                                     </div>
                                 }

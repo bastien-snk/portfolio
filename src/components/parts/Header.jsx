@@ -60,7 +60,7 @@ class Header extends Component {
     }
 
     render() {
-        return <div className={"absolute flex font-montserrat pt-7 xl:justify-center sticky top-0 z-50 shadow-inner shadow-2xl"}>
+        return <div className={"absolute flex font-montserrat pt-7 xl:justify-center sticky top-0 z-50 shadow-inner shadow-2xl " /*+ "bg-theme-gray-250 bg-opacity-20 shadow-b-xl"*/}>
             <a id="logo" href="/" className={hoverAnimation}>
                 <div className="flex ml-16 xl:ml-0">
                     <img

@@ -26,6 +26,19 @@ function Apropos() {
                     w-9/12 2xl:w-5/12 xl:mr-10 xl:mr-52 pb-10 2xl:pb-0
                     text-theme-white-classic text-justify
                 ">
+                    {/*Je suis Bastien, Développeur FullStack passionné.
+                    Depuis l'enfance, je suis intéressé par l'informatique et j'ai donc effectué un parcours scolaire dans ce domaine,
+                    ce qui m'a apporté un diplôme.
+
+                    En parallèle, j'ai instauré plusieurs projets personnels, ce qui m'a grandement aidé à acquérir de manière
+                    autodidacte les compétences que j'ai aujourd'hui.
+                    Cette expérience m'a amenée à évoluer au sein d'environnements professionnels très variés.
+                    J'apprends constamment de nouveaux langages et technologies.
+
+                    J'aime le code optimisé et propre. L'entraide est aussi quelque chose que j'affectionne, je contribue notamment
+                    à des projets open-sources.
+
+                    Je travaille en tant que Freelance en remote (distanciel) et présentiel dans certains cas.*/}
                     <p>
                         <b>👋 Bonjour !</b>
                     </p>

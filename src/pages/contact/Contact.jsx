@@ -14,7 +14,6 @@ import linkedin from "../../img/social/linkedin.png";
 import malt from "../../img/social/malt.png";
 import {Footer, mode} from "../../components/parts/Footer";
 import {Cursor} from "../../animations/Cursor";
-import {sendMail} from "../../mailsend.js";
 import {Slide, Fade} from "react-reveal";
 
 export const social = {
@@ -127,7 +126,7 @@ export function Contact() {
 
                 <div className="flex justify-center">
                     {/*"Monsieur TEST", "Objet", "Message"*/}
-                    <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28" onSubmit={sendMail()}>
+                    <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28">
                         {fields.map(field =>
                             <Fade left={true} duration={500} delay={100 + 50 * fields.indexOf(field)}>
                                 {field}

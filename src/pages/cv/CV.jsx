@@ -5,6 +5,7 @@ import React from "react";
 import {Cursor} from "../../animations/Cursor";
 import {Footer, mode} from "../../components/parts/Footer";
 import Section from "../../components/design-system/Section";
+import {Fade} from "react-reveal";
 
 export function CV() {
     return (
@@ -12,7 +13,7 @@ export function CV() {
             <div className="bg-theme-gray-250 ">
                 <Header />
                 <Section name="💼 Curriculum Vitae" id="cv" />
-
+                <Fade left duration={500} delay={600} distance="20px">
                 <img
                     className="w-4/12 h-4/12 mx-auto my-16 shadow-2xl rounded-2xl"
                     src={ cv }
@@ -21,6 +22,7 @@ export function CV() {
                     height="59"
                     alt=""
                 />
+                </Fade>
 
                 <Footer selectedMode={mode.DARK} />
 

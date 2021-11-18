@@ -11,6 +11,7 @@ import bolt from "../../img/projects/bolt.png";
 import transition from "../../img/transitions/portfolio/1.png";
 import {Footer, mode} from "../../components/parts/Footer";
 import {Cursor} from "../../animations/Cursor";
+import Slide from "react-reveal/Slide";
 
 const projectTypes = {
     PERSONNAL: {
@@ -136,10 +137,12 @@ export class Portfolio extends React.Component {
 
                     <div className="pt-28 justify-self-center grid lg:grid-cols-2 xl:grid-cols-3 gap-x-12 gap-y-10 mx-auto w-10/12">
                         {projects.map(project =>
-                            <div key={projects.indexOf(project)} className="justify-self-center">
-                                <ProjectCard project={project} />
-                            </div>)
-                        }
+                            <Slide left={true} duration={500} delay={100 + 50 * projects.indexOf(project)}>
+                                <div key={projects.indexOf(project)} className="justify-self-center">
+                                        <ProjectCard project={project} />
+                                </div>
+                            </Slide>
+                        )}
                     </div>
 
                     <img

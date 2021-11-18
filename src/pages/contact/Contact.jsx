@@ -14,6 +14,8 @@ import linkedin from "../../img/social/linkedin.png";
 import malt from "../../img/social/malt.png";
 import {Footer, mode} from "../../components/parts/Footer";
 import {Cursor} from "../../animations/Cursor";
+import {sendMail} from "../../mailsend.js";
+import {Slide, Fade} from "react-reveal";
 
 export const social = {
     GITHUB: {
@@ -110,6 +112,13 @@ class Field extends React.Component {
 
 export function Contact() {
 
+    let fields = [
+        <Field name="email" display="Email" img={ MailFocus } />,
+        <Field name="objet" display="Objet" img={ ObjetFocus } type="select" select={["Demander un devis", "Report de bug", "Autre..."]} />,
+        <Field name="nom" display="Nom" img={NomFocus} />,
+        <Field name="message" display="Message" img={MsgFocus} type="textarea" />
+    ];
+
     return (
         <Cursor width={5} height={5}>
             <div className="bg-theme-gray-250 min-w-screen min-h-screen">
@@ -117,17 +126,21 @@ export function Contact() {
                 <Section id="contact" name="✉️ Contact" />
 
                 <div className="flex justify-center">
-                    <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28">
-                        <Field name="email" display="Email" img={ MailFocus } />
-                        <Field name="objet" display="Objet" img={ ObjetFocus } type="select" select={["Demander un devis", "Report de bug", "Autre..."]} />
-                        <Field name="nom" display="Nom" img={NomFocus} />
-                        <Field name="message" display="Message" img={MsgFocus} type="textarea" />
+                    {/*"Monsieur TEST", "Objet", "Message"*/}
+                    <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28" onSubmit={sendMail()}>
+                        {fields.map(field =>
+                            <Fade left={true} duration={500} delay={100 + 50 * fields.indexOf(field)}>
+                                {field}
+                            </Fade>
+                        )}
 
-                        <input
-                            className="cursor-pointer text-theme-white-classic bg-theme-yellow-F49F0A rounded-full w-48 h-14 my-10 uppercase text-2xl place-self-center text-center my-auto transform hover:scale-125 duration-150 hover:-rotate-6"
-                            type="submit"
-                            value="Envoyer"
-                        />
+                        <Fade left={true} duration={500} delay={150 + 50 * fields.length}>
+                            <input
+                                className="cursor-pointer text-theme-white-classic bg-theme-yellow-F49F0A rounded-full w-48 h-14 my-10 uppercase text-2xl place-self-center text-center my-auto transform hover:scale-125 duration-150 hover:-rotate-6"
+                                type="submit"
+                                value="Envoyer"
+                            />
+                        </Fade>
                     </form>
 
                 </div>

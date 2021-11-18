@@ -5,6 +5,7 @@ import Header from "../../components/parts/Header";
 import IDE from "../../components/IDE";
 import {Footer, mode} from "../../components/parts/Footer";
 import {Cursor} from "../../animations/Cursor";
+import Fade from "react-reveal/Fade";
 
 export const Month = {
     JANUARY: 0,
@@ -38,6 +39,7 @@ const experiences = [
         company: "Indépendant",
         description: [
             "En tant que développeur indépendant, je réponds à vos demandes en créant des applications web / mobile, des logiciels ou tout autre outil technique en fonction de vos besoins.",
+            "Vous pouvez voir quelques exemples de projets sur lesquels j'ai participé sur la page Portfolio."
         ],
     },
     {
@@ -74,26 +76,30 @@ export class Experience extends React.Component {
                     <Header />
                     <Section name="💼 Expérience" id="experience" />
 
-                    <div id="content" className="py-32 flex flex-row justify-center gap-x-12 lg:gap-x-36">
-                        <div className="xl:w-2/12">
-                            <div id="exp-list" className="font-fira-code text-theme-white-classic text-2xl flex flex-col border-r-3 border-theme-gray-200">
-                                {
-                                    experiences.map(experience =>
-                                        <div
-                                            key={experiences.indexOf(experience)}
-                                            className={[
-                                                experiences.indexOf(this.state.experience) == experiences.indexOf(experience) ? " bg-theme-gray-200 text-theme-yellow-F49F0A border-b-3 border-theme-yellow-F49F0A " : " text-theme-white-classic cursor-pointer hover:bg-theme-gray-150 ",
-                                                " h-14 text-center"]
-                                            }
-                                            onClick={(e) => this.selectExperience(experiences.indexOf(experience))}
-                                        >
-                                            <p>{ experience.displayName? experience.displayName : experience.company }</p>
-                                        </div>
-                                    )
-                                }
+                    {/*TODO flex width de exp-list responsive + centrer text vertical*/}
+                    <div id="content" className="py-32 flex flex-col mx-auto w-10/12 md:w-7/12 lg:w-8/12 xl:w-full lg:flex-row justify-center gap-x-12 lg:gap-x-36">
+                        <Fade left={true} duration={500} delay={400} distance="30px">
+                            <div id="exp-list" className="xl:w-2/12 pb-6 lg:pb-0">
+                                <div  className="font-fira-code text-theme-white-classic text-2xl flex flex-col border-r-3 border-theme-gray-200">
+                                    {
+                                        experiences.map(experience =>
+                                            <div
+                                                key={experiences.indexOf(experience)}
+                                                className={[
+                                                    experiences.indexOf(this.state.experience) == experiences.indexOf(experience) ? " bg-theme-gray-200 text-theme-yellow-F49F0A border-b-3 border-theme-yellow-F49F0A " : " text-theme-white-classic cursor-pointer hover:bg-theme-gray-150 ",
+                                                    " h-14 text-center"]
+                                                }
+                                                onClick={(e) => this.selectExperience(experiences.indexOf(experience))}
+                                            >
+                                                <p>{ experience.displayName? experience.displayName : experience.company }</p>
+                                            </div>
+                                        )
+                                    }
+                                </div>
                             </div>
-                        </div>
-                        <div className="xl:w-3/12">
+                        </Fade>
+                        <Fade left={true} duration={500} delay={600} distance="30px">
+                            <div id="desc" className="xl:w-3/12">
                             <IDE
                                 windowName="Experience.pro"
                                 lines={
@@ -129,6 +135,7 @@ export class Experience extends React.Component {
                                 }
                             />
                         </div>
+                        </Fade>
                     </div>
 
                     <img

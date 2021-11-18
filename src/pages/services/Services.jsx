@@ -11,12 +11,13 @@ import {Footer, mode} from "../../components/parts/Footer";
 import transition from "../../img/transitions/portfolio/1.png";
 import {Cursor} from "../../animations/Cursor";
 import {Parenthesis} from "../../index";
+import {Slide, Fade} from "react-reveal";
 
 const services = [
     {
         name: 'Sites Web',
-        summary: <p>Développement d'un site web responsive répondant à vos besoins <Parenthesis text="Back-End & Front-End" />.
-            Maintenance de votre site web déjà existant.
+        summary: <p>Je peux m'occuper du développement d'un site web responsive répondant à vos besoins <Parenthesis text="Back-End & Front-End" />.
+            Ou bien effectuer la maintenance de votre site web déjà existant.
         </p>,
         href: "",
         img: siteweb,
@@ -24,7 +25,7 @@ const services = [
     {
         name: 'Applications mobile',
         summary: <p>
-                Développement d'une application mobile multi-plateformes (iOS & Android) vous correspondant.
+                Je suis apte à développemer une application mobile multi-plateformes (iOS & Android) vous correspondant.
         </p>,
         href: "",
         img: mobileapp,
@@ -32,8 +33,8 @@ const services = [
     {
         name: 'Conception et administration de Bases de données',
         summary: <p>
-            Conception de Modèles conceptuels de données pour vos bases de données relationnelles.
-            Conception de Schémas de données pour vos bases de données orientées documents.
+            Grâce à vos indications, nous pourrons concevoir un ou plusieurs Modèles conceptuels de données pour vos bases de données relationnelles
+            ou bien de Schémas de données pour vos bases de données orientées documents.
         </p>,
         href: "",
         img: db,
@@ -41,9 +42,9 @@ const services = [
     {
         name: 'Noms de domaines et hébergement',
         summary: <p>
-            Recherche d'offres d'hébergement adaptées à vos besoins.
-            Enregistrement et configuration de vos noms de domaines, ajout de certificats HTTPS.
-            Déploiement de vos sites web, services back-end.
+            Il m'est possible de rechercher des offres d'hébergement adaptées à vos besoins.
+            Ainsi que l'enregistrement et configuration de vos noms de domaines, comprenant aussi l'ajout de certificats HTTPS.
+            Si nécessaire, je peux aussi m'occuper du déploiement de vos sites web, services back-end.
         </p>,
         href: "",
         img: hosting,
@@ -51,7 +52,7 @@ const services = [
     {
         name: 'UI / UX Design',
         summary: <p>
-            Conception d'interfaces graphiques correspondant à vos besoins.
+            En plus du développement, je peux aussi m'occuper de la conception d'interfaces graphiques correspondant à vos besoins.
         </p>,
         href: "",
         img: ui,
@@ -69,22 +70,31 @@ export function Services() {
                     <div id="services" className="flex flex-col w-8/12 mx-auto justify-self-center">
                         {services.map(service =>
                             <div key={services.indexOf(service)} className={"justify-self-center flex flex-col gap-x-16 py-16" + (services.indexOf(service) %2 == 0 ? " xl:flex-row " : " xl:flex-row-reverse ")}>
-                                <img
-                                    className={"rounded-full my-auto mx-auto"}
-                                    src={ service.img }
-                                    srcSet={ service.img }
-                                    alt=""
-                                    aria-valuetext="test"
-                                    width="428"
-                                    height="428"
-                                />
+                                <Fade left duration={500} delay={300} distance="2px">
+                                    <img
+                                        className={"rounded-full my-auto mx-auto"}
+                                        src={ service.img }
+                                        srcSet={ service.img }
+                                        alt=""
+                                        aria-valuetext="test"
+                                        width="428"
+                                        height="428"
+                                    />
+                                </Fade>
                                 <div className="flex flex-col flex-1 mt-10">
-                                    <h1 className="text-theme-yellow-F49F0A text-3xl font-bold pb-4">{ service.name }</h1>
-                                    <p className="text-theme-white-classic text-lg">{ service.summary }</p>
-                                    <div className="justify-center flex flex-row gap-x-8 font-semibold my-10">
-                                        <Button href="/contact" text="DEMANDER UN DEVIS" />
-                                        <Button mode="light" href={ "/service/" + service.href} text="EN SAVOIR PLUS" />
-                                    </div>
+                                    <Fade left={true} duration={500} delay={500} distance="30px">
+                                        <h1 className="text-theme-yellow-F49F0A text-3xl text-center lg:text-left font-bold pb-4">{ service.name }</h1>
+                                    </Fade>
+                                    <Fade left={true} duration={500} delay={600} distance="30px">
+                                        <p className="text-theme-white-classic text-lg">{ service.summary }</p>
+                                    </Fade>
+
+                                    <Fade left={true} duration={500} delay={300} distance="30px">
+                                        <div className="justify-center flex flex-row gap-x-8 font-semibold my-10">
+                                            <Button href="/contact" text="DEMANDER UN DEVIS" />
+                                            <Button mode="light" href={ "/service/" + service.href} text="EN SAVOIR PLUS" />
+                                        </div>
+                                    </Fade>
                                 </div>
                             </div>
                         )}

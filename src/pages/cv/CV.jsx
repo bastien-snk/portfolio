@@ -14,7 +14,7 @@ export function CV() {
                 <Section name="💼 Curriculum Vitae" id="cv" />
 
                 <img
-                    className="w-4/12 h-4/12 mx-auto py-16 shadow-2xl"
+                    className="w-4/12 h-4/12 mx-auto my-16 shadow-2xl rounded-2xl"
                     src={ cv }
                     srcSet={ cv }
                     width="59"

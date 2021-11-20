@@ -1,3 +1,4 @@
+/* purgecss ignore */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,4 +35,8 @@
 
 .cursor-img {
     cursor: url('img/cursor.png'), auto;
+}
+
+.custom-cursor {
+    @apply w-6 h-6 rounded-full bg-transparent border-2 border-white;
 }

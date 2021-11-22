@@ -47,10 +47,16 @@ class Header extends Component {
         window.addEventListener('scroll', () => {
             this.setState({menu: false});
         });
+
+        // prevent that navbar is hided on resize
+        window.addEventListener('resize', () => {
+            this.setState({menu: false});
+        });
     }
 
     componentWillUnmount() {
         window.removeEventListener('scroll', null);
+        window.removeEventListener('resize', null);
     }
 
     toggleMenu() {
@@ -65,7 +71,7 @@ class Header extends Component {
         return <Fade top duration={1000} delay={200} distance="30px">
             <div className={"absolute flex font-montserrat pt-7 xl:justify-center sticky top-0 z-50 shadow-inner shadow-2xl " /*+ "bg-theme-gray-250 bg-opacity-20 shadow-b-xl"*/}>
                 <a id="logo" href="/" className={hoverAnimation}>
-                    <div className="flex ml-16 xl:ml-0">
+                    <div className="flex ml-16 xl:ml-0 cursor-none">
                         <img
                             className=""
                             src={logo}
@@ -81,11 +87,11 @@ class Header extends Component {
 
 
                 {!this.state.menu ?
-                    <nav className="ml-12 relative">
+                    <nav className="ml-12 relative cursor-none ">
                         <ul className="mt-2 text-theme-white-classic hidden xl:flex lg:sh">
                             {pages.map(page =>
                                 <li key={page.href} className={"mr-11 " + hoverAnimation }>
-                                    <a href={page.href}>{page.name}</a>
+                                    <a className="cursor-none" href={page.href}>{page.name}</a>
                                 </li>
                             )}
                         </ul>
@@ -97,7 +103,7 @@ class Header extends Component {
                 <div className="xl:hidden">
                     <a onClick={this.toggleMenu} className={[this.state.menu ? "hidden " : "", " z-50 cursor-pointer"]}>
                         <img
-                            className={"flex xl:hidden absolute right-7 top-7 " + hoverAnimation }
+                            className={"flex xl:hidden absolute right-7 top-7 cursor-none " + hoverAnimation }
                             src={ menu }
                             srcSet={ menu }
                             width="31"
@@ -110,11 +116,11 @@ class Header extends Component {
                         <div
                             ref={this.ref}
                             id="burger-menu"
-                            className={[!this.state.menu ? "hidden " : "", " absolute right-0 -mt-7 w-6/12 bg-theme-gray-100 shadow-l-2xl text-theme-white-classic min-h-screen p-5 overflow-hidden"]}
+                            className={[!this.state.menu ? "hidden " : "", " absolute right-0 -mt-7 w-6/12 bg-theme-gray-100 shadow-l-2xl text-theme-white-classic min-h-screen p-5"]}
                         >
                             <img
                                 onClick={this.toggleMenu}
-                                className="cursor-pointer"
+                                className={"cursor-none " + hoverAnimation}
                                 src={close}
                                 srcSet={close}
                                 width="31"
@@ -122,16 +128,16 @@ class Header extends Component {
                                 alt=""
                             />
                             <ul className="py-5">
-                                {pages.map(page => <li key={page.href} className={"py-1 " + hoverAnimation }><a href={page.href}>{page.name}</a></li>)}
+                                {pages.map(page =>
+                                    <li key={page.href} className={"py-1 " + hoverAnimation }>
+                                        <a className="cursor-none" href={page.href}>{page.name}</a>
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     </Slide>
                 </div>
-
-
-
-
-            </div>;
+            </div>
         </Fade>
     }
 }

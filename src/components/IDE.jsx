@@ -50,9 +50,9 @@ class IDE extends Component {
                 </span>
 
                 <ul className="flex flew-row gap-1 my-auto mr-4">
-                    <li className={"hover:bg-green-500 cursor-pointer" + boutton}></li>
-                    <li className={"hover:bg-yellow-500 cursor-pointer" + boutton}></li>
-                    <li className={"hover:bg-red-500 cursor-pointer" + boutton}></li>
+                    <li className={"hover:bg-green-500 cursor-none" + boutton}></li>
+                    <li className={"hover:bg-yellow-500 cursor-none" + boutton}></li>
+                    <li className={"hover:bg-red-500 cursor-none" + boutton}></li>
                 </ul>
             </div>
 

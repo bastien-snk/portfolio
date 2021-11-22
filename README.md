@@ -209,7 +209,7 @@ const projectTypes = {
 
 ```javascript
 // You need to import the image like this
-import lyra from "../../img/projects/lyra.png";
+import lyra from "../../img/projects/card.png";
 
 const projects = [
     {

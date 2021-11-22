@@ -119,32 +119,32 @@ export function Contact() {
     ];
 
     return (
-        <Cursor width={5} height={5}>
-            <div className="bg-theme-gray-250 min-w-screen min-h-screen">
-                <Header />
-                <Section id="contact" name="✉️ Contact" />
+        <div className="bg-theme-gray-250 min-w-screen min-h-screen cursor-none">
+            <Header />
+            <Section id="contact" name="✉️ Contact" />
 
-                <div className="flex justify-center">
-                    {/*"Monsieur TEST", "Objet", "Message"*/}
-                    <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28">
-                        {fields.map(field =>
-                            <Fade left={true} duration={500} delay={100 + 50 * fields.indexOf(field)}>
-                                {field}
-                            </Fade>
-                        )}
+            <div className="flex justify-center">
+                {/*"Monsieur TEST", "Objet", "Message"*/}
+                <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28">
+                    {fields.map(field =>
+                        <Fade left={true} duration={500} delay={100 + 50 * fields.indexOf(field)}>
+                            {field}
+                        </Fade>
+                    )}
 
-                        <Fade left={true} duration={500} delay={150 + 50 * fields.length}>
+                    <Fade left={true} duration={500} delay={150 + 50 * fields.length}>
+                        <div className="mx-auto">
                             <input
-                                className="cursor-pointer text-theme-white-classic bg-theme-yellow-F49F0A rounded-full w-48 h-14 my-10 uppercase text-2xl place-self-center text-center my-auto transform hover:scale-125 duration-150 hover:-rotate-6"
+                                className="cursor-none text-theme-white-classic bg-theme-yellow-F49F0A rounded-full w-48 h-14 my-10 uppercase text-2xl place-self-center text-center my-auto transform hover:scale-125 duration-150 hover:-rotate-6"
                                 type="submit"
                                 value="Envoyer"
                             />
-                        </Fade>
-                    </form>
+                        </div>
+                    </Fade>
+                </form>
 
-                </div>
-                <Footer selectedMode={mode.DARK} />
             </div>
-        </Cursor>
+            <Footer selectedMode={mode.DARK} />
+        </div>
     );
 }

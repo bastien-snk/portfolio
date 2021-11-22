@@ -5,7 +5,7 @@ import Section from "../../components/design-system/Section";
 import transition from "../../img/transitions/competences/1.png";
 import React from "react";
 import {Cursor} from "../../animations/Cursor";
-import {Parenthesis, TechnicalLanguage} from "../../index";
+import {List, Parenthesis, TechnicalLanguage} from "../../index";
 import {Fade} from "react-reveal";
 
 const competences = [
@@ -156,85 +156,74 @@ const competences = [
 
 
 
-function List({list}) {
-    return <ul className="list ml-4 grid grid-cols-1 md:grid-cols-2">
-        {
-            list.map(element =>
-                <li key={list.indexOf(element.name)}>{" "}<p className="text-theme-white-classic ml-2">{element.name}</p></li>
-            )
-        }
-    </ul>
-}
+
 
 function Competences() {
     let test = true;
     return (
-        <Cursor width={5} height={5}>
-            <div className="bg-theme-gray-200 min-w-screen min-h-screen">
-                <Header />
-                <Section name="🔧 Compétences" id="competences" />
+        <div className="bg-theme-gray-200 min-w-screen min-h-screen cursor-none">
+            <Header />
+            <Section name="🔧 Compétences" id="competences" />
 
-                <div className="flex flex-col mx-auto gap-y-40 py-32 w-9/12 font-montserrat">
-                    {
-                        competences.map(competence =>
-                            <div key={competence.title} className={["justify-center flex flex-col-reverse gap-x-16 ", competences.indexOf(competence) %2 == 0 ? " lg:flex-row " : " lg:flex-row-reverse " ]}>
-                                <div className="w-60 h-60 mt-10 lg:w-80 lg:h-80 xl:w-[128px] xl:h-[128px] my-auto mx-auto">
-                                    <Fade bottom={true} duration={200} delay={500} distance="30px">
-                                        <Doughnut
-                                            options={{
-                                                plugins: {
-                                                    title: {
-                                                        display: true,
-                                                        text: competence.chartName,
-                                                    }
+            <div className="flex flex-col mx-auto gap-y-40 py-32 w-9/12 font-montserrat">
+                {
+                    competences.map(competence =>
+                        <div key={competence.title} className={["justify-center flex flex-col-reverse gap-x-16 ", competences.indexOf(competence) %2 == 0 ? " lg:flex-row " : " lg:flex-row-reverse " ]}>
+                            <div className="w-60 h-60 mt-10 lg:w-80 lg:h-80 xl:w-[128px] xl:h-[128px] my-auto mx-auto">
+                                <Fade bottom={true} duration={200} delay={500} distance="30px">
+                                    <Doughnut
+                                        options={{
+                                            plugins: {
+                                                title: {
+                                                    display: true,
+                                                    text: competence.chartName,
                                                 }
-                                            }}
-                                            data={{
-                                                labels: competence.known.map(known => known.name),
-                                                datasets: [
-                                                    {
-                                                        data: competence.known.map(known => known.percent),
-                                                        backgroundColor: competence.known.map(known => known.hex),
-                                                        borderWidth: 0,
-                                                    },
-                                                ],
-                                            }}
-                                        />
-                                    </Fade>
-                                </div>
-
-                                <Fade left={true} duration={500} delay={600} distance="30px">
-                                    <div key={competences.indexOf(competence)} className="text-theme-white-classic justify-center xl:w-6/12">
-                                        <Fade left={true} duration={500} delay={500} distance="30px">
-                                            <h1 className="font-bold text-3xl lg:text-4xl text-theme-yellow-F49F0A mb-9">{competence.title}</h1>
-                                        </Fade>
-                                            <p className="text-justify">{competence.text}</p>
-
-                                            <p className="mt-7"><u>Voici les {competence.listName} que je sais utiliser:</u></p>
-                                            <List list={competence.known} />
-
-
-                                            <p className="mt-7"><u>Voici les {competence.listName} que j'aimerai apprendre utiliser:</u></p>
-                                            <List list={competence.wantToLean} />
-                                    </div>
+                                            }
+                                        }}
+                                        data={{
+                                            labels: competence.known.map(known => known.name),
+                                            datasets: [
+                                                {
+                                                    data: competence.known.map(known => known.percent),
+                                                    backgroundColor: competence.known.map(known => known.hex),
+                                                    borderWidth: 0,
+                                                },
+                                            ],
+                                        }}
+                                    />
                                 </Fade>
                             </div>
-                        )
-                    }
-                </div>
 
-                <img
-                    className="inset-x-0 bottom-0 z-40 lg:mt-6 transform rotate-180"
-                    src={transition}
-                    srcSet={transition}
-                    width="100%"
-                    height="100%"
-                    alt=""
-                />
-                <Footer selectedMode={mode.DARK} />
+                            <Fade left={true} duration={500} delay={600} distance="30px">
+                                <div key={competences.indexOf(competence)} className="text-theme-white-classic justify-center xl:w-6/12">
+                                    <Fade left={true} duration={500} delay={500} distance="30px">
+                                        <h1 className="font-bold text-3xl lg:text-4xl text-theme-yellow-F49F0A mb-9">{competence.title}</h1>
+                                    </Fade>
+                                        <p className="text-justify">{competence.text}</p>
+
+                                        <p className="mt-7"><u>Voici les {competence.listName} que je sais utiliser:</u></p>
+                                        <List list={competence.known} />
+
+
+                                        <p className="mt-7"><u>Voici les {competence.listName} que j'aimerai apprendre utiliser:</u></p>
+                                        <List list={competence.wantToLean} />
+                                </div>
+                            </Fade>
+                        </div>
+                    )
+                }
             </div>
 
-        </Cursor>
+            <img
+                className="inset-x-0 bottom-0 z-40 lg:mt-6 transform rotate-180"
+                src={transition}
+                srcSet={transition}
+                width="100%"
+                height="100%"
+                alt=""
+            />
+            <Footer selectedMode={mode.DARK} />
+        </div>
     );
 }
 

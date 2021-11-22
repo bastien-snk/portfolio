@@ -12,6 +12,7 @@ import transition from "../../img/transitions/portfolio/1.png";
 import {Cursor} from "../../animations/Cursor";
 import {Parenthesis} from "../../index";
 import {Slide, Fade} from "react-reveal";
+import Tilt from "react-tilt";
 
 const services = [
     {
@@ -60,17 +61,31 @@ const services = [
 ];
 
 export function Services() {
-    return (
-        <Cursor width={5} height={5}>
-            <div className="relative">
-                <div className="bg-theme-gray-250 min-w-screen min-h-screen">
-                    <Header />
-                    <Section name="⚙️ Mes services" id="services" />
+    let test = false;
 
-                    <div id="services" className="flex flex-col w-8/12 mx-auto justify-self-center">
-                        {services.map(service =>
-                            <div key={services.indexOf(service)} className={"justify-self-center flex flex-col gap-x-16 py-16" + (services.indexOf(service) %2 == 0 ? " xl:flex-row " : " xl:flex-row-reverse ")}>
-                                <Fade left duration={500} delay={300} distance="2px">
+    return (
+        <div className="relative cursor-none">
+            <div className="bg-theme-gray-250 min-w-screen min-h-screen">
+                <Header />
+                <Section name="⚙️ Mes services" id="services" />
+
+                <div id="services" className="flex flex-col w-8/12 mx-auto justify-self-center">
+                    {services.map(service =>
+                        <div key={services.indexOf(service)} className={"justify-self-center flex flex-col gap-x-16 py-16" + (services.indexOf(service) %2 == 0 ? " xl:flex-row " : " xl:flex-row-reverse ")}>
+                            <Fade left duration={500} delay={300} distance="2px">
+                                <Tilt
+                                    options={{
+                                        reverse: false,
+                                        max: 8,
+                                        perspective: 1000,
+                                        scale: 1,
+                                        speed: 300,
+                                        transition: true,
+                                        axis: null,
+                                        reset: true,
+                                        easing: 'cubic-bezier(.03,.98,.52,.99)',
+                                    }}
+                                >
                                     <img
                                         className={"rounded-full my-auto mx-auto"}
                                         src={ service.img }
@@ -80,29 +95,33 @@ export function Services() {
                                         width="428"
                                         height="428"
                                     />
+                                </Tilt>
+                            </Fade>
+                            <div className="flex flex-col flex-1 mt-10">
+                                <Fade left={true} duration={500} delay={500} distance="30px">
+                                    <h1 className="text-theme-yellow-F49F0A text-3xl text-center lg:text-left font-bold pb-4">{ service.name }</h1>
                                 </Fade>
-                                <div className="flex flex-col flex-1 mt-10">
-                                    <Fade left={true} duration={500} delay={500} distance="30px">
-                                        <h1 className="text-theme-yellow-F49F0A text-3xl text-center lg:text-left font-bold pb-4">{ service.name }</h1>
-                                    </Fade>
-                                    <Fade left={true} duration={500} delay={600} distance="30px">
-                                        <p className="text-theme-white-classic text-lg">{ service.summary }</p>
-                                    </Fade>
+                                <Fade left={true} duration={500} delay={600} distance="30px">
+                                    <p className="text-theme-white-classic text-lg">{ service.summary }</p>
+                                </Fade>
 
-                                    <Fade left={true} duration={500} delay={300} distance="30px">
-                                        <div className="justify-center flex flex-row gap-x-8 font-semibold my-10">
-                                            <Button href="/contact" text="DEMANDER UN DEVIS" />
+                                <Fade left={true} duration={500} delay={300} distance="30px">
+                                    <div className="justify-center flex flex-row gap-x-8 font-semibold my-10">
+                                        <Button href="/contact" text="DEMANDER UN DEVIS" />
+                                        {test ?
                                             <Button mode="light" href={ "/service/" + service.href} text="EN SAVOIR PLUS" />
-                                        </div>
-                                    </Fade>
-                                </div>
+                                            :
+                                            <></>
+                                        }
+                                    </div>
+                                </Fade>
                             </div>
-                        )}
-                    </div>
+                        </div>
+                    )}
                 </div>
-
-                <Footer selectedMode={mode.DARK} />
             </div>
-        </Cursor>
+
+            <Footer selectedMode={mode.DARK} />
+        </div>
     );
 }

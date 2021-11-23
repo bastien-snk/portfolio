@@ -45,8 +45,6 @@ ReactDOM.render(
   <React.StrictMode>
       <Router>
           <Route path="/" exact component={Home} />
-          <Route path="/home" exact component={Home} />
-          <Route path="" exact component={Home} />
           <Route path="/about" exact component={Home}  />
           <Route path="/competences" exact component={Competences} />
           <Route path="/experience" exact component={Experience} />

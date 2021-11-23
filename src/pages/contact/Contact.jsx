@@ -168,12 +168,12 @@ export function Contact() {
             console.log(e.target.values);
         }
 
-        /*emailjs
+        emailjs
             .sendForm("service_5gjsqlf", "template_7fcubns", e.target, "user_UcL7XHaULnLZomm3WU8fl")
             .then(res => {
                 console.log("Mail sended")
             })
-            .catch(error => console.log(error));*/
+            .catch(error => console.log(error));
     }
 
     return (

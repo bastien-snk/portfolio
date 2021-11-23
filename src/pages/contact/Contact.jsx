@@ -15,6 +15,7 @@ import malt from "../../img/social/malt.png";
 import {Footer, mode} from "../../components/parts/Footer";
 import {Cursor} from "../../animations/Cursor";
 import {Slide, Fade} from "react-reveal";
+import emailjs from "emailjs-com";
 
 export const social = {
     GITHUB: {
@@ -37,9 +38,27 @@ const utilizeFocus = () => {
     return {setFocus, ref}
 }
 
+const objetMsg = [
+    {
+        name: "Demander un devis",
+        mailName: "Demande de devis",
+    },
+    {
+        name: "Reporter un bug vu sur le site",
+        mailName: "Report de bug",
+    },
+    {
+        name: "Autre...",
+        mailName: "Demande particulière"
+    }
+];
+
+function mailPattern(e) {
+    e.target.value = e.target.value.match(e.target.pattern);
+}
+
 //TODO
 // add focus to labels
-// add mail send
 class Field extends React.Component {
 
     constructor(props, context) {
@@ -102,21 +121,60 @@ class Field extends React.Component {
                             <></>
                     }
 
+                    {
+                        this.props.type === "email" ?
+                            <input
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                type="email"
+                                name={this.props.name}
+                                className={ this.style + " h-18" }
+                            >
+                            </input>
+                            :
+                            <></>
+                    }
+
 
                 </div>
             </div>
     }
 }
 
-
 export function Contact() {
 
+    const [error, setError] = React.useState("");
+
     let fields = [
-        <Field name="email" display="Email" img={ MailFocus } />,
-        <Field name="objet" display="Objet" img={ ObjetFocus } type="select" select={["Demander un devis", "Report de bug", "Autre..."]} />,
+        <Field
+            name="email"
+            display="Email"
+            img={ MailFocus }
+        />,
+        <Field
+            name="objet"
+            display="Objet"
+            img={ ObjetFocus }
+            type="select"
+            select={objetMsg.map(objet => objet.name)}
+        />,
         <Field name="nom" display="Nom" img={NomFocus} />,
         <Field name="message" display="Message" img={MsgFocus} type="textarea" />
     ];
+
+    function sendMail(e) {
+        e.preventDefault();
+
+        errorCheck: {
+            console.log(e.target.values);
+        }
+
+        /*emailjs
+            .sendForm("service_5gjsqlf", "template_7fcubns", e.target, "user_UcL7XHaULnLZomm3WU8fl")
+            .then(res => {
+                console.log("Mail sended")
+            })
+            .catch(error => console.log(error));*/
+    }
 
     return (
         <div className="bg-theme-gray-250 min-w-screen min-h-screen cursor-none">
@@ -124,10 +182,15 @@ export function Contact() {
             <Section id="contact" name="✉️ Contact" />
 
             <div className="flex justify-center">
-                {/*"Monsieur TEST", "Objet", "Message"*/}
-                <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28">
+                {error != null ?
+                    <p>{error}</p>
+                    :
+                    <></>
+                }
+
+                <form className="flex flex-col w-9/12 lg:w-7/12 xl-w-5/12 gap-y-5 py-28" onSubmit={sendMail}>
                     {fields.map(field =>
-                        <Fade left={true} duration={500} delay={100 + 50 * fields.indexOf(field)}>
+                        <Fade key={fields.indexOf(field)} left={true} duration={500} delay={100 + 50 * fields.indexOf(field)}>
                             {field}
                         </Fade>
                     )}

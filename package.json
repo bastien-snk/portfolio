@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^12.1.10",
     "chart.js": "^3.6.0",
     "custom-cursor-react": "^1.0.5",
+    "emailjs-com": "^3.2.0",
     "gsap": "^3.8.0",
     "node-mailjet": "^3.3.4",
     "nodemailer": "^6.7.1",

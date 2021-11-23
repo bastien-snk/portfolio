@@ -1,266 +1,224 @@
-# Gatsby Simplefolio ⚡️ [![GitHub](https://img.shields.io/github/license/cobidev/gatsby-simplefolio?color=blue)](https://github.com/cobidev/gatsby-simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobidev/gatsby-simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobidev/gatsby-simplefolio)
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<p style="display: inline;">
+    <a href="https://bsnk.tk/">
+        <img src="https://bsnk.tk/favicon-32x32.png?v=4ccd13523eddd3694feac28b19d11786" />
+        Reactfolio
+    </a>
+<p>
+    
+![](https://cloudinary-a.akamaihd.net/hopwork/image/upload/w_1024,c_limit,dpr_2/khsr0vjuodfclx9qebjk)
 
-## A clean, beautiful and responsive portfolio template for Developers
+## Stack
 
-<h2 align="center">
-  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/example.gif" alt="Gatsby Simplefolio" width="600px" />
-  <br>
-</h2>
+- [React.js](https://fr.reactjs.org/) - React allows you to create stand-alone components that maintain their own state, then assemble them to create complex user interfaces.
+- [TailwindCSS](https://chakra-ui.com/) - A utility-first CSS framework packed with classes that can be composed to build any design, directly in your HTML code.
 
-## Features
-
-⚡️ Modern UI Design + Reveal Animations\
-⚡️ One Page Layout built with React\
-⚡️ Styled with Bootstrap v4.3 + Custom SCSS\
-⚡️ Fully Responsive\
-⚡️ Configurable color scheme\
-⚡️ Image optimization with Gatsby\
-⚡️ Easy site customization\
-⚡️ Well organized documentation
-
-To view a demo example, **[click here](https://gatsby-simplefolio.netlify.com/)**\
-To view a live example, **[click here](https://cobidev.com/)**
-
----
-
-## Getting Started 🚀
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites 📋
-
-You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [NPM](http://npmjs.com)) installed on your computer.\
-Also you need to have installed [Gatsby CLI](https://www.gatsbyjs.org/docs/quick-start/)
+## Project structure
 
 ```
-node@v10.16.0 or higher
-npm@6.9.0 or higher
-git@2.17.1 or higher
-gatsby-cli@2.8.22 or higher
+$PROJECT_ROOT
+│
+├──┬── src 
+│  ├──── components # React components
+│  ├──── img # Images
+│  └──── pages # React page components
+│ 
+└── public # Static files
 ```
+## Installation
 
-Also, you can use [Yarn](https://yarnpkg.com/) instead of NPM ☝️
-
-```
-yarn@v1.21.1 or higher
-```
-
----
-
-## How To Use 🔧
-
-From your command line, first clone Simplefolio:
+1. Clone repository with Git:
 
 ```bash
-# Clone this repository
-$ git clone https://github.com/cobidev/gatsby-simplefolio
-
-# Go into the repository
-$ cd gatsby-simplefolio
-
-# Remove current origin repository
-$ git remote remove origin
+  git clone https://github.com/rootxls/portfolio-react
+  cd portfolio-react
 ```
 
-Then you can install the dependencies either using NPM or Yarn:
-
-Using NPM:
+2. Run the dev server
 
 ```bash
-# Install dependencies
-$ npm install
-
-# Start development server
-$ npm run develop
+    npm start
 ```
 
-Using Yarn:
+## Instructions
 
-```bash
-# Install dependencies
-$ yarn
+### Step 1 - Home presentation
 
-# Start development server
-$ yarn develop
-```
-
-**NOTE**:
-If your run into issues installing the dependencies with NPM, use this command:
-
-```bash
-# Install dependencies with all permissions
-$ sudo npm install --unsafe-perm=true --allow-root
-```
-
-Once your server has started, go to this url `http://localhost:8000/` and you will see the website running on a Development Server:
-
-<h2 align="center">
-  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/example.png" alt="Gatsby Simplefolio" width="100%">
-</h2>
-
----
-
-## Instructions:
-
-### Step 1 - STRUCTURE
-
-Go to `/src/mock/data.js` and fill your information, they are 5 objects:
-
-### Hero Section
+Go to `/src/pages/home/Home.jsx` and replace written strings by your informations:
 
 ```javascript
-export const heroData = {
-  title: '', // Hello, my name is
-  name: '', // John
-  subtitle: '', // I'm the Unknown Developer.
-  cta: '', // Know more
+const presentation = {
+    iam: "Je suis",
+    name: "Bastien",
+    text: [
+        "DÉVELOPPEUR",
+        "FRONT-END",
+        "BACK-END",
+    ]
 };
 ```
-
-### About Section
-
-**_Important Note_**: All the images must live inside the `src/images/` folder in order for Gatsby to show the images correctly.
-
+    
 ```javascript
-export const aboutData = {
-  img: 'profile.jpg', // put your profile image (recommended aspect radio: square)
-  paragraphOne: '',
-  paragraphTwo: '',
-  paragraphThree: '',
-  resume: 'https://www.resumemaker.online/es.php', // if no resume, the button will not show up
+const ideInformations = {
+    jobClassName: "Developer", // class Name
+    birthdate: new Date(2001, Month.SEPTEMBER, 20), // birth date
+    location: "“📍 Perpignan, France”", // location
+    degree: true, // have a degree
+    custom: [
+        {
+            name: "",
+            value: true,
+        }
+    ], // custom variables,
 };
 ```
+    
+**Custom IDE variables:**
+    
+If you want to add custom variable to IDE, you just have to add objects like this to ideInformations.custom:
+    
+```javascript
+{
+    name: "", // variable name
+    value: true, // variable value
+}
+```
 
-### Projects Section
+### Step 2 - About Section
 
-**_Important Note_**: All the images must live inside the `src/images/` folder in order for Gatsby to show the images correctly.
+Go to `/src/pages/home/sections/Apropos.jsx` and go to HTML div with id "text", then replace text by yours.
 
-Put as many projects object you want inside the `array`.
+### Step 3 - Experience Section
+
+Go to `/src/pages/experience/Experience.jsx` and replace written strings by your professional experiences:
+
+#### Object structure:
+
+**Date:**
+```javascript
+const Month = {
+    JANUARY: 0,
+    FEBRUARY: 1,
+    MARCH: 2,
+    APRIL: 3,
+    MAY: 4,
+    JUNE: 5,
+    JULY: 6,
+    AUGUST: 7,
+    SEPTEMBER: 8,
+    OCTOBER: 9,
+    NOVEMBER: 10,
+    DECEMBER: 11,
+};
+
+const year = 2021;
+
+// replace Month.DECEMBER with the month of the date
+new Date(year, Month.DECEMBER);
+```
+
+**Experience:**
+```javascript
+{
+    // You can remove from & to or set value to null if experience is in progress
+    from: new Date(2021, Month.JANUARY), // experience start date
+    to: new Date(2021, Month.JANUARY), // experience end date
+    displayName: "Freelancing", // Name displayed in experience selection list
+    job: "Développeur", // Job exercised
+    company: "Indépendant", // Company
+    description: [
+        "A", 
+        "B",
+        "C"
+    ], // Description of what you've done with this company
+},
+```
 
 ```javascript
-export const projectsData = [
-  {
-    id: nanoid(),
-    img: 'project.jpg',
-    title: '',
-    info: '',
-    info2: '',
-    url: '',
-    repo: 'https://github.com/cobidev/react-simplefolio', // if no repo, the button will not show up
-  },
-  {
-    id: nanoid(),
-    img: 'project.jpg',
-    title: '',
-    info: '',
-    info2: '',
-    url: '',
-    repo: 'https://github.com/cobidev/react-simplefolio', // if no repo, the button will not show up
-  },
-  ...
+const experiences = [
+    {
+        displayName: "Freelancing",
+        job: "Développeur",
+        company: "Indépendant",
+        description: [
+            "A",
+            "B",
+            "C"
+        ],
+    },
+    {
+        from: new Date(2021, Month.JANUARY),
+        to: new Date(2021, Month.FEBRUARY),
+        job: "Développeur",
+        company: "Ludiconcept",
+        description: [
+            "A",
+            "B",
+            "C"
+        ],
+    },
 ];
 ```
 
-### Contact Section
+### Step 4 - Services Section
+
+Go to `/src/pages/services/Service.jsx` and replace written objects by your informations:
 
 ```javascript
-export const contactData = {
-  cta: '', // call to action text for the contact section
-  btn: '', // text inside the button
-  email: '',
+// You need to import the image like this
+import siteweb from "../../img/services/site-web.png";
+
+const services = [
+    {
+        name: 'Sites Web', // Service name
+        summary: 'Lorem ipsum dolor sit amet. Aut aliquam voluptas in odio nobis non placeat ipsa aut \n' +
+            'Quis tenetur aut amet eius et expedita iste. Non voluptas nihil in deleniti dolorem eum quaerat aperiam sed sapiente nemo et enim rerum vel eaque eligendi? Qui saepe quia sed dolor natus cum nemo natus ab provident quae sit illo doloremque ut veniam dolorem sed inventore iste. Id maxime natus qui porro quia est maiores beatae quo cumque debitis.',
+            // Service description
+        href: "", // Service link
+        img: siteweb, // Service image
+    },
+];
+```
+
+### Step 5 - Portfolio Section
+
+Go to `/src/pages/portfolio/Portfolio.jsx` and replace written objects by your informations:
+
+**Project types:**
+
+You can replace project name with what you want, and add more project types.
+
+```javascript
+const projectTypes = {
+    PERSONNAL: {
+        name: 'Projet personnel',
+    },
+    OPEN_SOURCE: {
+        name: 'Projet open-source',
+    },
+    PROFESSIONNAL: {
+        STAGE: {
+            name: 'Stage',
+        },
+        FREELANCE: {
+            name: 'Mission Freelance',
+        },
+    },
 };
 ```
 
-### Footer Section
-
-You can remove or add as many you social-media icons you want.\
-Just put an object with the corresponding values inside the networks `array` or remove it from there.
-
 ```javascript
-export const footerData = {
-  networks: [
+// You need to import the image like this
+import lyra from "../../img/projects/card.png";
+
+const projects = [
     {
-      id: nanoid(),
-      name: 'twitter',
-      url: '', // your twitter url
+        id: 1, // id for project details, just put increasing integer (1,2,3...)
+        name: 'LyraMC', // Project name
+        type: projectTypes.PERSONNAL, // Project type 
+        desc: '...', // Project description
+        repo: 'https://github.com/LyraMC', // Project repo, if none remove line or set value to null
+        img: lyra,
     },
-    {
-      id: nanoid(),
-      name: 'codepen',
-      url: '', // your codepen url
-    },
-    {
-      id: nanoid(),
-      name: 'linkedin',
-      url: '', // your linkedin url
-    },
-    {
-      id: nanoid(),
-      name: 'github',
-      url: '', // your github url
-    },
-  ],
-};
+];
 ```
-
-### Required - Disable GitHub buttons
-
-Set `isEnabled` to `false` once you finish setup your portfolio.\
-By setting to `false` it will hide the GitHub stars/fork buttons
-
-```javascript
-export const githubButtons = {
-  isEnabled: true, // true is the default value
-};
-```
-
-### Step 2 - STYLES
-
-Change the color theme of the website ( choose 2 colors to create a gradient ):
-
-Go to `src/styles/abstracts/_variables.scss` and only change the values on this classes `$main-color` and `$secondary-color` to your prefered HEX color
-
-```scss
-// Default values
-$main-color: #02aab0;
-$secondary-color: #00cdac;
-```
-
-**_Note_**: I highly recommend to checkout gradients variations on [UI Gradient](https://uigradients.com/#BrightVault)
-
----
-
-## Deployment 📦
-
-Once you have done with your setup. You need to put your website online!
-
-I highly recommend to use [Netlify](https://netlify.com) to achieve this on the EASIEST WAY
-
-## Others versions 👥
-
-[Simplefolio](https://github.com/cobidev/simplefolio) by [Jacobo Martinez](https://github.com/cobidev)\
-[Ember.js Simplefolio](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
-
-## Technologies used 🛠️
-
-- [Gatsby](https://www.gatsbyjs.org/) - Static Site Generator
-- [GraphQL](https://graphql.org/) - Query language for APIs
-- [React](https://es.reactjs.org/) - Front-End JavaScript library
-- [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/) - Front-End UI library
-- [Sass](https://sass-lang.com/documentation) - CSS extension language
-
-## Authors
-
-- **Jacobo Martinez** - [https://github.com/cobidev](https://github.com/cobidev)
-
-## Status
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2365af6f-820a-4fb8-83e6-69a66f686dfe/deploy-status)](https://app.netlify.com/sites/gatsby-simplefolio/deploys)
-
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments 🎁
-
-I was motivated to create this project because I wanted to contribute on something useful for the dev community, thanks to [ZTM Community](https://github.com/zero-to-mastery) and [Andrei](https://github.com/aneagoie)

@@ -33,6 +33,8 @@ module.exports = {
         yellow: colors.yellow,
         orange: colors.orange,
         green: colors.green,
+        indigo: colors.indigo,
+        fuchsia: colors.fuchsia,
         theme: {
           white: {
             classic: '#F8F8F8',

@@ -29,14 +29,18 @@ export class Project extends Component{
                         <div id="project-image" className="w-60 h-60 lg:w-80 lg:h-80 xl:w-[128px] xl:h-[128px] mt-20 mx-auto">
                             <Fade bottom={true} duration={200} delay={500} distance="30px">
                                 <img
-                                    className="rounded-full border-5 border-theme-white-classic shadow-2xl"
+                                    className="rounded-full border-5 border-theme-white-classic shadow-2xl mx-auto"
                                     src={ this.project.pageimg }
                                     srcSet={ this.project.pageimg }
                                     alt=""
                                 />
                                 <div className="text-theme-white-classic text-center mt-4">
                                     <h1 className={"font-bold text-xl lg:text-2xl " + this.project.textColor}>{this.project.pageName}</h1>
-                                    <h2 className={"text-lg lg:text-xl text-gray-300 "}>{formatDate(this.project.from)} - {formatDate(this.project.to)}</h2>
+                                    {this.project.from != null && this.project.from != null ?
+                                        <h2 className={"text-lg lg:text-xl text-gray-300 "}>{formatDate(this.project.from)} - {formatDate(this.project.to)}</h2>
+                                        :
+                                        <h2></h2>
+                                    }
                                 </div>
                             </Fade>
                         </div>
@@ -98,18 +102,23 @@ export class Project extends Component{
                             </Fade>
                         </div>
                     </div>
-                    <div id="some-visuals" className="flex gap-x-12">
-                        <div id="visuel-txt" className="xl:w-6/12">
-                            <Fade left={true} duration={500} delay={500} distance="30px">
-                                <h1 className="font-bold text-3xl lg:text-4xl text-theme-yellow-F49F0A mb-7">Quelques visuels</h1>
-                                <p className="text-justify text-theme-white-classic pb-2">{this.project.visuals}</p>
-                            </Fade>
-                        </div>
 
-                        <div className="w-6/12 h-4/12">
-                            <Carousel images={this.project.images} />
+                    {this.project.visuals != null ?
+                        <div id="some-visuals" className="flex gap-x-12">
+                            <div id="visuel-txt" className="xl:w-6/12">
+                                <Fade left={true} duration={500} delay={500} distance="30px">
+                                    <h1 className="font-bold text-3xl lg:text-4xl text-theme-yellow-F49F0A mb-7">Quelques visuels</h1>
+                                    <p className="text-justify text-theme-white-classic pb-2">{this.project.visuals}</p>
+                                </Fade>
+                            </div>
+
+                            <div className="w-6/12 h-4/12">
+                                <Carousel images={this.project.images} />
+                            </div>
                         </div>
-                    </div>
+                        :
+                        <></>
+                    }
                     {/*<div id="some-stats" className={"justify-center flex flex-col gap-x-16 mx-auto"}>
                         <div className="mx-auto">
                             <h1 className="font-bold text-3xl lg:text-4xl text-theme-yellow-F49F0A mb-7">Quelques statistiques</h1>

@@ -14,6 +14,7 @@ import CustomCursor from 'custom-cursor-react';
 import 'custom-cursor-react/dist/index.css';
 import gsap from "gsap";
 import {Project} from "./pages/portfolio/project/Project";
+import { unregister } from './registerServiceWorker';
 
 export function TechnicalLanguage({text}) {
     return <p className="inline text-theme-yellow-F49F0A">{text}</p>
@@ -41,6 +42,7 @@ export function Parenthesis({text}) {
     return <p className="inline text-sm text-theme-gray-50">({text})</p>
 }
 
+unregister();
 ReactDOM.render(
     <React.StrictMode>
         <Router>

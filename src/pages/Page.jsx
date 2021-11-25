@@ -1,3 +1,5 @@
+import React from "react";
+
 export class Page extends React.Component {
 
     constructor(props, context) {
@@ -12,6 +14,7 @@ export class Page extends React.Component {
                     registration.unregister().then(r => console.log(r));
                     document.location.reload();
                 }
+                console.log("removed service worker");
             }
         );
     }

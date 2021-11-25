@@ -74,8 +74,8 @@ ReactDOM.render(
 navigator.serviceWorker.getRegistrations().then(
     function (registrations) {
         for (let registration of registrations) {
-            registration.unregister()
-            document.location.reload()
+            registration.unregister().then(r => console.log(r));
+            document.location.reload();
         }
     }
 );

@@ -29,12 +29,12 @@ export function List({list}) {
     return <ul className="list ml-4 grid grid-cols-1 md:grid-cols-2">
         {
             list.map(element =>
-                <li key={list.indexOf(element.name)}>{" "}<p className="text-theme-white-classic ml-2">{element.name}</p></li>
+                <li key={list.indexOf(element.name)}>{" "}<p
+                    className="text-theme-white-classic ml-2">{element.name}</p></li>
             )
         }
     </ul>
 }
-
 
 
 export function Parenthesis({text}) {
@@ -42,38 +42,43 @@ export function Parenthesis({text}) {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
-      <Router>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" exact component={Home}  />
-          <Route path="/competences" exact component={Competences} />
-          <Route path="/experience" exact component={Experience} />
-          <Route path="/services" exact component={Services} />
-          <Route path="/portfolio" exact component={Portfolio} />
-          <Route path="/contact" exact component={Contact} />
-          <Route path="/cv" exact component={CV} />
-          <Route  path="/project/:id" exact component={Project} />
-      </Router>
-      <CustomCursor
-          customClass='custom-cursor'
-          dimensions={30}
-          fill='transparent'
-          smoothness={{
-              movement: 0.2,
-              scale: 0.1,
-              opacity: 0.2,
-              strokeWidth: 20,
-              strokeColor: '#FFFFF',
-          }}
-          targetOpacity={1}
-      />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Router>
+            <Route path="/" exact component={Home}/>
+            <Route path="/about" exact component={Home}/>
+            <Route path="/competences" exact component={Competences}/>
+            <Route path="/experience" exact component={Experience}/>
+            <Route path="/services" exact component={Services}/>
+            <Route path="/portfolio" exact component={Portfolio}/>
+            <Route path="/contact" exact component={Contact}/>
+            <Route path="/cv" exact component={CV}/>
+            <Route path="/project/:id" exact component={Project}/>
+        </Router>
+        <CustomCursor
+            customClass='custom-cursor'
+            dimensions={30}
+            fill='transparent'
+            smoothness={{
+                movement: 0.2,
+                scale: 0.1,
+                opacity: 0.2,
+                strokeWidth: 20,
+                strokeColor: '#FFFFF',
+            }}
+            targetOpacity={1}
+        />
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
-navigator.serviceWorker.register( {
-    updateViaCache: 'none' // this is new
-});
+navigator.serviceWorker.getRegistrations().then(
+    function (registrations) {
+        for (let registration of registrations) {
+            registration.unregister()
+            document.location.reload()
+        }
+    }
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
